@@ -1,4 +1,5 @@
 ﻿using Microsoft.Identity.Client;
+using Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,20 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Http.Headers;
 
 namespace WebApp_SAML.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
+        {
+            var userClaims = ClaimsPrincipal.Current.Claims.ToList();
+            return View(userClaims);
+        }
+
+        public async Task<ActionResult> UserProfile()
         {
             var app = PublicClientApplicationBuilder.Create("992f2eec-20ec-4eb4-952b-2d974f0db6ea")
                 .WithAuthority("https://login.microsoftonline.com/979f4440-75dc-4664-b2e1-2cafa0ac67d1/v2.0")
@@ -22,29 +30,25 @@ namespace WebApp_SAML.Controllers
             // Set public client true
             // Grant consent via portal
 
-            var securePassword = new SecureString();
-            foreach (char c in "Vancouver1")        
-                securePassword.AppendChar(c);
-            
-            var result = await app.AcquireTokenByUsernamePassword(new string[] { "User.Read" }, "test1@lab.cxpaadtenant.com", securePassword)
-                .ExecuteAsync().ConfigureAwait(false);
+            var result = await app.AcquireTokenByIntegratedWindowsAuth(new string[] { "User.Read" })
+                .ExecuteAsync()
+                .ConfigureAwait(false);
 
-            var userClaims = ClaimsPrincipal.Current.Claims.ToList();
-            return View(userClaims);
+            GraphServiceClient graphServiceClient = new GraphServiceClient("https://graph.microsoft.com/v1.0",
+                new DelegateAuthenticationProvider(
+                                                                         async (requestMessage) =>
+                                                                         {
+                                                                             await Task.Run(() =>
+                                                                             {
+                                                                                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", result.AccessToken);
+                                                                             });
+                                                                         }));
+
+            var me = await graphServiceClient.Me.Request()
+                .GetAsync();
+
+            return View(me);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
