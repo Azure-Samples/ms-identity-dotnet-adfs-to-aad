@@ -87,7 +87,7 @@ As a first step you'll need to:
 1. If your account is present in more than one Azure AD tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory**.
    Change your portal session to the desired Azure AD tenant where you want to migrate the SAML application.
 
-### Registering the application
+### Registering the SAML application
 
 1. Navigate to the Microsoft identity platform for developers [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/EnterpriseApps) page.
 1. Select **New registration**.
@@ -168,11 +168,35 @@ Once you have synced the Directory Extensions using Azure AD Connect tool, you c
 
 ### Testing the application
 
-Run the same SAML application, `WebApp_SAML`, that you have migrated to AAD, and you will see the new claim listed on the homepage:
+Run the same SAML application project, `WebApp_SAML`, that you have migrated to AAD, and you will see the new claim listed on the homepage:
 
 ![ExtraClaim](./ReadmeFiles/extensionAttClaim.png)
 
 >NOTE: If the user signed-in doesn't have a value for the claim, it won't be listed in the claims list.
 
+# Chapter 3: Security Groups
 
+All the groups listed in the ADFS `Synced OU/Groups` folder, will be migrated to AAD with the Azure AD Connect tool. The group members will also be automatically set in the AAD side by the tool.
 
+In this chapter we are going to explain how to bring the synced groups to the SAML web application claims.
+
+## Adding Group Claims
+
+Assuming that you already have your SAML application configured in your AAD tenant, navigate to its **Single Sign-on** blade and follow the steps bellow. 
+
+>NOTE: If you haven't configured the SAML application yet, please go to [Chapter 1](#registering-the-saml-application)
+
+1. Navigate to the Microsoft identity platform for developers [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/EnterpriseApps) page. 
+1. Search for the application that we have previously configured, for instance `WebApp_SAML` and select it.
+1. On the left blade, select **Single Sign-on**.
+1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
+1. Select **Add a group claim**.
+1. For the group association field, select **Security Group**.
+1. For **Source Attribute** field, select **sAMAccountName**.
+1. [Optional] If you want to customize the claim, check the box for **Customize the name of the group claim** and fill the inputs according to your customization.
+
+### Testing the application
+
+Run the same SAML application project, `WebApp_SAML`, that you have migrated to AAD, and you will see that the user's groups will be listed in the claims:
+
+![GroupClaims](./ReadmeFiles/groupClaim.png)
