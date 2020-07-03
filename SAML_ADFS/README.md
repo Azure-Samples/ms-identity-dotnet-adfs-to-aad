@@ -146,4 +146,29 @@ To test the migration, you can access [Graph Explorer](https://aka.ms/ge), sign-
 
 Once signed-in and accepted the consent screen, run the query for the URL: `https://graph.microsoft.com/beta/me`, and the attributes will be listed in the result.
 
->Note: When you sync directory attributes via Azure AD Connect tool, their name on Microsoft Graph will have an auto-generated prefix that cannot be edited. For instance, if you have an attribute called `genderAttribute` and use the tool so sync it with Azure AD, its name will be transformed to something like: `extension_90f5761cbd854b259d47fde20b522087_genderAttribute`
+>Note: When you sync directory attributes via Azure AD Connect tool, their name on Microsoft Graph will have an auto-generated prefix that **cannot be edited**. For instance, if you have an attribute called `shoeSizeAttribute` and use the tool so sync it with Azure AD, its name will be transformed to something like: `extension_90f5761cbd854b259d47fde20b522087_shoeSizeAttribute`
+
+## Adding Directory Extension attributes to AAD SAML claims
+
+Once you have synced the Directory Extensions using Azure AD Connect tool, you can configure your SAML application to include these extensions in the claims. For it, please follow the steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to the Microsoft identity platform for developers [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/EnterpriseApps) page. 
+1. Search for the application that we have previously configured, for instance `WebApp_SAML` and select it.
+1. On the left blade, select **Single Sign-on**.
+1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
+1. Select **Add new claim**.
+1. On the **Name** field, type the desired name for the claim. For instance, `shoeSize`.
+1. On the **Namespace** field, type the desired namespace for the new claim. For instance, `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/extensions`.
+1. On the **Source** field, select **Attribute**.
+1. On the **Source Attribute** field, select the synced Directory Extension that you would like to set for this new claim.
+1. Select **Save**.
+
+### Testing the application
+
+Run the same SAML application, `WebApp_SAML`, that you have migrated to AAD, and you will see the new claim listed in the homepage:
+
+<img src="../ReadmeFiles/extensionAttClaim.png" width="50%"/>
+
+
+
