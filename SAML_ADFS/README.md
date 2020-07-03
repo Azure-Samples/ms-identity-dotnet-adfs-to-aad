@@ -129,6 +129,8 @@ Run the **WebApp_SAML** application and sign-in using a ADFS user or a user from
 
 While groups and claims will get sync to Azure AD automatically using Azure AD Connect tool, your ADFS directory extensions require a configuration to have it done.
 
+If your ADFS doesn't have Directory Extensions but you would like to add it so you can try this chapter, please follow [this tutorial](https://social.technet.microsoft.com/wiki/contents/articles/51121.active-directory-how-to-add-custom-attribute-to-schema.aspx) to create an extension.
+
 ## Configuring Azure AD Connect for Directory Extensions
 
 1. Open the Azure AD Connect tool and select **Configure**
@@ -166,9 +168,11 @@ Once you have synced the Directory Extensions using Azure AD Connect tool, you c
 
 ### Testing the application
 
-Run the same SAML application, `WebApp_SAML`, that you have migrated to AAD, and you will see the new claim listed in the homepage:
+Run the same SAML application, `WebApp_SAML`, that you have migrated to AAD, and you will see the new claim listed on the homepage:
 
-<img src="../ReadmeFiles/extensionAttClaim.png" width="50%"/>
+![ExtraClaim](./ReadmeFiles/extensionAttClaim.png)
+
+>NOTE: If the user signed-in doesn't have a value for the claim, it won't be listed in the claims list.
 
 
 
