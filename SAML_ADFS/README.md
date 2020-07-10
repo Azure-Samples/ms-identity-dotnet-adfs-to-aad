@@ -200,3 +200,10 @@ Assuming that you already have your SAML application configured in your AAD tena
 Run the same SAML application project, `WebApp_SAML`, that you have migrated to AAD, and you will see that the user's groups will be listed in the claims:
 
 ![GroupClaims](./ReadmeFiles/groupClaim.png)
+
+# Chapter 4: Moving the AAD application from SAML to OpenIdConnect(OIDC) 
+
+Give links about SAML and OIDC
+
+- Change the code from `app.UseWsFederationAuthentication` to `app.UseOpenIdConnectAuthentication`
+- Set metadata to app specific one due to JWT Signing Keys, `https://login.microsoftonline.com/979f4440-75dc-4664-b2e1-2cafa0ac67d1/.well-known/openid-configuration?appid=d3fe55db-31dd-4d85-8d18-06fb7219766f`.

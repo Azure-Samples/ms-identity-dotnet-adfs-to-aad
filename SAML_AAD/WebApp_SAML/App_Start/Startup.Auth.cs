@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
+using System.IdentityModel.Metadata;
+using System.IdentityModel.Tokens;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel.Security;
 using System.Web;
+using System.Xml;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin.Host.SystemWeb;
@@ -48,13 +53,54 @@ namespace WebApp_SAML
                     Authority = authority,
                     ClientId = clientId,
                     RedirectUri = redirectUri,
-                    PostLogoutRedirectUri = redirectUri
+                    PostLogoutRedirectUri = redirectUri,
+                    //MetadataAddress = "https://login.microsoftonline.com/979f4440-75dc-4664-b2e1-2cafa0ac67d1/.well-known/openid-configuration?appid=d3fe55db-31dd-4d85-8d18-06fb7219766f",
                     
 
                     // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/samesite/owin-samesite
                     //CookieManager = new SameSiteCookieManager(
                     //                 new SystemWebCookieManager())
-                }); ;
+                });
+
+            
+        }
+
+        public List<X509SecurityToken> GetSigningCertificates(string metadataAddress)
+        {
+            List<X509SecurityToken> tokens = new List<X509SecurityToken>();
+
+            if (metadataAddress == null)
+            {
+                throw new ArgumentNullException(metadataAddress);
+            }
+
+            using (XmlReader metadataReader = XmlReader.Create(metadataAddress))
+            {
+                MetadataSerializer serializer = new MetadataSerializer();
+                EntityDescriptor metadata = serializer.ReadMetadata(metadataReader) as EntityDescriptor;
+
+                if (metadata != null)
+                {
+                    SecurityTokenServiceDescriptor stsd = metadata.RoleDescriptors.OfType<SecurityTokenServiceDescriptor>().First();
+
+                    if (stsd != null)
+                    {
+                        IEnumerable<X509RawDataKeyIdentifierClause> x509DataClauses = stsd.Keys.Where(key => key.KeyInfo != null && (key.Use == KeyType.Signing || key.Use == KeyType.Unspecified)).
+                                                             Select(key => key.KeyInfo.OfType<X509RawDataKeyIdentifierClause>().First());
+
+                        tokens.AddRange(x509DataClauses.Select(token => new X509SecurityToken(new X509Certificate2(token.GetX509RawData()))));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("There is no RoleDescriptor of type SecurityTokenServiceType in the metadata");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Invalid Federation Metadata document");
+                }
+            }
+            return tokens;
         }
     }
 }
