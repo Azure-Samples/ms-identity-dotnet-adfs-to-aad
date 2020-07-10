@@ -54,7 +54,7 @@ namespace WebApp_SAML
                     ClientId = clientId,
                     RedirectUri = redirectUri,
                     PostLogoutRedirectUri = redirectUri,
-                    //MetadataAddress = "https://login.microsoftonline.com/979f4440-75dc-4664-b2e1-2cafa0ac67d1/.well-known/openid-configuration?appid=d3fe55db-31dd-4d85-8d18-06fb7219766f",
+                    MetadataAddress = "https://login.microsoftonline.com/979f4440-75dc-4664-b2e1-2cafa0ac67d1/.well-known/openid-configuration?appid=d3fe55db-31dd-4d85-8d18-06fb7219766f",
                     
 
                     // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/samesite/owin-samesite
