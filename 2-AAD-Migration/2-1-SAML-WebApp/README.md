@@ -59,6 +59,12 @@ The playground web application also have **Employee-ID**, so we need to configur
 
 1. In the **SAML Signing Certificate** section, copy the value for `App Federation Metadata Url`. We will use it on the .NET MVC project.
 
+### Customize Claims Emitted in Tokens
+
+In Azure AD, it is possible to customize claims emitted in tokens for specific applications. Check the [permitted values that can be emitted](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#table-3-valid-id-values-per-source) and [SAML exceptions and restrictions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#exceptions-and-restrictions).
+
+In order to customize the claims emitted in tokens, you have to create a **claim mapping policy** and assign it to the desired application. Learn [how to create and assign a claim mapping policy](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-assignment).
+
 ## Configure the .NET MVC project (WebApp_SAML) to use your app registration
 
 Open the project **WebApp_SAML** in your IDE (like Visual Studio) to configure the code.
