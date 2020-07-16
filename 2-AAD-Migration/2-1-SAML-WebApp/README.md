@@ -40,14 +40,20 @@ Learn more about [configuring SAML-based single sign-on on Azure AD](https://doc
 1. Set **Reply URL** with the URL that Azure AD will reply after the authentication. In this sample we are using `https://localhost:44347/`.
 1. [Optional] Set the optional parameters if they are required in your scenario.
 
-#### [Optional] User Attributes and Claims
+#### User Attributes and Claims
 
-By default, the claims *givenname*, *surname*, *emailaddress* and *name* will be already configured. If you added extra claims on the AD FS SAML playground web application, follow the steps below to register all the additional claims that should be returned by the Azure AD SAML application:
+By default, the claims *givenname*, *surname*, *emailaddress* and *name* will be already configured. 
+
+The playground web application also have **Employee-ID**, so we need to configure that. If you added extra claims on the AD FS SAML playground web application, follow the steps below to register all the additional claims that should be returned by the Azure AD SAML application:
 
 1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
 1. Add additional claims that you would like to use in the Web App project.
-1. To add a claim, select **Add new claim** at the top of the page. Enter the Name and select the appropriate source.
-1. Select **Save**. The new claim appears in the table.
+1. To add a claim, select **Add new claim** at the top of the page. 
+2. Enter the **Name**, for instance `employeeID`.
+3. Enter the **Namespace** if desired, for instance `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`.
+4. Select the appropriate **Source** that contains the claim value. For **Employee-ID**, the source is **Attribute**.
+5. Select the appropriate **Source Attribute** or **Transformation**, depending on what you selected on the previous step. For **Employee-ID**, please select `user.employeeid`.
+6. Select **Save**. The new claim appears in the table.
 
 #### SAML Signing Certificate
 
