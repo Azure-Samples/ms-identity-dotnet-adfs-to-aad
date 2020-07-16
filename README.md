@@ -4,50 +4,56 @@ languages:
 - csharp
 products:
 - dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+description: "Guidance to Migrate Web Applications from AD FS to Azure AD"
+urlFragment: "ms-identity-adfs-to-aad"
 ---
 
-# Official Microsoft Sample
+# Guidance to Migrate Web Applications from AD FS to Azure AD
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+## About this sample
 
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+### Overview
 
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
+This sample will guide you through steps to migrate a web application from AD FS to Azure AD. It provides you a web application playground to test the migration, using both SAML and OpenId Connect protocols.
 
-Give a short description for your sample here. What does it do and why is it important?
+It also includes a guidance to migrate Directory Extensions, Security Groups and change an application from SAML to OpenId Connect
+
+### Scenario
+
+- A playground web application on AD FS using SAML and OpenId Connect protocol, to be used as a migration test
+- Guidance on how to configure Azure AD Connect tool
+- Guidance on how to migrate Directory Extensions to Azure AD
+- Steps on migrating the playground web application to Azure AD and a code sample
+- Guidance to enable Security Groups on the migrated playground application
+- Steps on changing an application from SAML to OpenId Connect protocol and a code sample
 
 ## Contents
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
+| `1-ADFS-Host`     | Chapter about configuration on the AD FS side.                                                            |
+| `2-AAD-Migration` | Chapter about configuration on the Azure AD side and the migration steps.                                             |
 | `CHANGELOG.md`    | List of changes to the sample.             |
 | `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
 | `README.md`       | This README file.                          |
 | `LICENSE`         | The license for the sample.                |
 
-## Prerequisites
-
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
-
 ## Setup
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+### Prerequisites
 
-## Running the sample
+- .NET Framework 4.7.2
+- An AD FS environment
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- An Azure AD tenant admin account
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+## Community Help and Support
 
-## Key concepts
+Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+If you find a bug in the sample, please raise the issue on [GitHub Issues](../issues).
+
+To provide a recommendation, visit the following [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Contributing
 
