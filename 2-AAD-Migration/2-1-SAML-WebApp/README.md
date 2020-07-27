@@ -6,8 +6,7 @@ You have a web application using SAML protocol on AD FS and you would like to mi
 
 ## About the sample
 
-// FIX LINK
-This sample uses a .NET MVC application configured to use SAML single-sign-on on AD FS, to migrate it to Microsoft Active Directory. The web application used in this sample is the playground project from [chapter 1](). Ideally, you would like to follow the chapter 1 first to have a testing application for this migration.
+This sample uses a .NET MVC application configured to use SAML single-sign-on on AD FS, to migrate it to Microsoft Active Directory. The web application used in this sample is the playground project from [chapter 1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground). Ideally, you would like to follow the chapter 1 first to have a testing application for this migration.
 
 After the migration, this sample will use the `App Federation Metadata Url` from the Azure AD application, for the SAML authentication.
 
@@ -15,7 +14,6 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 
 - [Visual Studio](https://aka.ms/vsdownload)
 - .NET Framework 4.7.2
-- An Internet connection
 - An AD FS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 
@@ -76,9 +74,9 @@ Open the project **WebApp_SAML** in your IDE (like Visual Studio) to configure t
 
 ### Testing the application
 
-Run the **WebApp_SAML** application and sign-in using a user migrated from AD FS or a user existing in your Azure AD tenant only.
+Clean and build the solution, then run the **WebApp_SAML** application and sign-in using a user migrated from AD FS or a user existing in your Azure AD tenant only.
 
-You will notice that all the claims configured on the **User Attributes and Claims** steps will be listed in the page, case the signed-in user has a value set to it.
+All the claims configured on the **User Attributes and Claims** steps will be listed in the page, case the signed-in user has a value set for it.
 
 ### Useful resources
 

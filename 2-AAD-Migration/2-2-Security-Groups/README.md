@@ -12,18 +12,15 @@ This documentation guides you how to configure an Azure AD application to includ
 
 ### Pre-requisites
 
-- An Internet connection
 - An AD FS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 - [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain joined machine
 
 ## Migrate Security Groups
 
-//FIX LINKS
-
 Users and groups will get synced to Azure AD using the Azure AD Connect tool out of the box, as long as they are presented in the **Synced OU** folder on AD FS.
 
-If you haven't set Azure AD Connect tool yet, please refer to [chapter 1-2]() first.
+If you haven't set Azure AD Connect tool yet, please refer to [chapter 1-2-Setup-AzureADConnect](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) first.
 
 ## Configure Security Group Claims
 
@@ -53,9 +50,9 @@ Once you have configured the group claims, follow the steps below to include gro
 
 ### Testing the group claims
 
-Run the playground project and sign-in using a user migrated from AD FS who is member of a security group.
+Clean and build the solution, then run the playground project and sign-in using a user migrated from AD FS who is member of a security group.
 
-You will notice that for each group that the user belongs to, a claim for will be displayed with the chosen **Source attribute** as its value.
+For each group that the user belongs to, a claim for will be displayed with the chosen **Source attribute** as its value.
 
 ![GroupClaims](./ReadmeFiles/groupClaim.png)
 

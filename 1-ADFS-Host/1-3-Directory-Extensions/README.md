@@ -12,7 +12,6 @@ This documentation guides you how to configure [Azure AD Connect](https://docs.m
 
 ### Pre-requisites
 
-- An Internet connection
 - An AD FS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 - [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain joined machine
@@ -40,7 +39,7 @@ Learn more details about [synchronizing Directory Extensions to Azure AD](https:
 
 To test the migration, you can access [Graph Explorer](https://aka.ms/ge) and sign-in using an AD FS user who has some of the extra attributes set.
 
-Once signed-in and accepted the consent screen, run the query for the URL: `https://graph.microsoft.com/beta/me`, and the extra attributes will be presented in the result.
+Once signed-in and accepted the consent screen, run the query for the URL, `https://graph.microsoft.com/beta/me`, and the extra attributes will be presented in the result.
 
 >Note: When you sync Directory Extensions via Azure AD Connect tool, their name on Microsoft Graph will have an auto-generated prefix that **cannot be edited**. For instance, if you have an extension called `regionDivision` and use the tool so sync it with Azure AD, its name will be transformed to something like: `extension_90f5761cbd854b259d47fde20b522087_regionDivision`. [Learn more about it here](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#configuration-changes-in-azure-ad-made-by-the-wizard).
 

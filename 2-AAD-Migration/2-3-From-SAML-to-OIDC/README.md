@@ -7,8 +7,7 @@ You have a web application using SAML protocol on Azure AD and you would like to
 
 ## About the sample
 
-// FIX LINK
-This sample uses a .NET MVC application registered on Microsoft Active Directory, to migrate the authentication protocol from SAML to OpenId Connect. The SAML web application project can be found in [chapter 1]().
+This sample uses a .NET MVC application registered on Microsoft Active Directory, to migrate the authentication protocol from SAML to OpenId Connect. The SAML web application project can be found in [chapter 1-1-Setup-SAML-Playground](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground).
 
 This sample assumes that the SAML application uses `Microsoft.Owin.Security.WsFederation`, which will be changed to use `Microsoft.Owin.Security.OpenIdConnect` instead.
 
@@ -16,7 +15,6 @@ This sample assumes that the SAML application uses `Microsoft.Owin.Security.WsFe
 
 - [Visual Studio](https://aka.ms/vsdownload)
 - .NET Framework 4.7.2
-- An Internet connection
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 
 ## Migrate from SAML to OpenId Connect
@@ -77,5 +75,5 @@ Open the web application, and in the `web.config` file, add the following keys c
    
 ### Testing the application
 
-Run the web application and sign-in with a user existing in your tenant. The user will get authenticated and the claims containing in the **Id Token** will be displayed in the screen.
+Clean and build the solution, then run the web application and sign-in with a user existing in your tenant. The user will get authenticated and the claims containing in the **Id Token** will be displayed in the screen.
 
