@@ -5,7 +5,7 @@ languages:
 products:
 - dotnet
 description: "Guidance to Migrate Web Applications from AD FS to Azure AD"
-urlFragment: "ms-identity-adfs-to-aad"
+urlFragment: "ms-identity-dotnet-adfs-to-aad"
 ---
 
 # Guidance to Migrate Web Applications from AD FS to Azure AD
@@ -14,15 +14,15 @@ urlFragment: "ms-identity-adfs-to-aad"
 
 ### Overview
 
-This sample will guide you through steps to migrate a web application from AD FS to Azure AD. It provides you a web application playground to test the migration, using both SAML and OpenId Connect protocols.
+This sample will guide you through steps to migrate a web application from AD FS to Azure AD. It provides you a web application playground to test the migration, using both [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) protocols.
 
 It also includes a guidance to migrate Directory Extensions, Security Groups and change an application from SAML to OpenId Connect
 
 ### Scenario
 
-- A playground web application on AD FS using SAML and OpenId Connect protocol, to be used as a migration test
+- A playground web application on AD FS using [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) protocol, to be used as a migration test
 - Guidance on how to configure Azure AD Connect tool
-- Guidance on how to migrate Directory Extensions to Azure AD
+- Guidance on how to migrate [Directory Extensions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) to Azure AD
 - Steps on migrating the playground web application to Azure AD and a code sample
 - Guidance to enable Security Groups on the migrated playground application
 - Steps on changing an application from SAML to OpenId Connect protocol and a code sample
@@ -33,7 +33,6 @@ It also includes a guidance to migrate Directory Extensions, Security Groups and
 |-------------------|--------------------------------------------|
 | `1-ADFS-Host`     | Chapter about configuration on the AD FS side.                                                            |
 | `2-AAD-Migration` | Chapter about configuration on the Azure AD side and the migration steps.                                             |
-| `CHANGELOG.md`    | List of changes to the sample.             |
 | `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
 | `README.md`       | This README file.                          |
 | `LICENSE`         | The license for the sample.                |

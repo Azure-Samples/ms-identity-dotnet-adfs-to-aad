@@ -4,7 +4,7 @@
 
 ## Scenario
 
-You have an AD FS environment and would like to migrate it Azure Active Directory.
+You have an AD FS environment and would like to migrate it to Azure Active Directory.
 
 ## About the sample
 
@@ -12,7 +12,6 @@ This documentation will guide you through the initial steps on how to migrate an
 
 ### Pre-requisites
 
-- An Internet connection
 - An AD FS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 - A tenant admin account on Azure Active Directory
@@ -30,7 +29,7 @@ Please, [kindly read the Azure AD Connect prerequisites](https://docs.microsoft.
 
 On a domain joined Windows Server 2012 or later, [download and install Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). It is highly recommended that this server is a domain controller.
 
-The installation wizard will walk you through how to configure the tool.
+The installation wizard will walk you through the tool configuration.
 
 You will be asked to provide details about the Azure Active Directory tenant where you would like to migrate. A tenant admin account is required for this step.
 
@@ -38,11 +37,11 @@ You will be asked to provide details about the Azure Active Directory tenant whe
 
 ## Additional sync tasks
 
-If you run Azure AD Connect installation wizard again, it offers options for maintenance and additional tasks.
+If you run Azure AD Connect installation wizard again, it offers options for maintenance and set additional tasks.
 
 See [additional tasks available](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-installation-wizard) for details about extra configuration steps.
 
 ## Next Step
-//TODO: FIX LINKS
-- [Optional] If your AD FS has **Directory Extensions**, please [move to the next sample to learn how to migrate them]().
-- [Migrate the web app SAML application to Azure Active Directory]().
+
+- [Optional] If your AD FS has **Directory Extensions**, please [move to the next chapter to learn how to migrate them](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-3-Directory-Extensions).
+- Learn how to [migrate the web app SAML application to Azure Active Directory]().

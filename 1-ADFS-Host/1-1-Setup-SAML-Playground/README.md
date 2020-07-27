@@ -1,4 +1,4 @@
-# .NET MVC Web application playground to test the migration to Azure AD
+# Playground .NET MVC Web application to test the migration to Azure AD
 
 > This sample assumes that you already have an AD FS environment.
 
@@ -8,13 +8,12 @@ You have an AD FS web application using SAML protocol and would like to migrate 
 
 ## About the sample
 
-This sample is a .NET MVC web application, configured to use SAML single-sign-on on AD FS, that you could use as a playground to test the migration to Azure AD.
+This sample is a .NET MVC web application, configured to use SAML single-sign-on on AD FS, that you could use as a playground app to test the migration to Azure AD.
 
 ### Pre-requisites
 
 - [Visual Studio](https://aka.ms/vsdownload)
 - .NET Framework 4.7.2
-- An Internet connection
 - An AD FS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
 
@@ -72,4 +71,6 @@ This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** 
     ```
 1. The key `ida:Wtrealm` is the current website URL. Since this sample is running on *localhost*, there is no need to update it. 
 
-Run the **WebApp_SAML** application and sign-in using an AD FS user.
+## Run the sample
+
+Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an AD FS user. The homepage will print the claims in the user's token.
