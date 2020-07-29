@@ -34,7 +34,7 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 Learn more about [configuring SAML-based single sign-on on Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 1. To edit the basic SAML configuration options, select the **Edit** icon (a pencil) in the upper-right corner of the Basic SAML Configuration section.
-1. Set **Identifier (Entity ID)** with an unique URL that follows the pattern, `http://.{your-domain}.com`. For instance: `http://webappsaml.contoso.com`. Copy the Entity ID value to be used in later steps.
+1. Set **Identifier (Entity ID)** with an unique URL that follows the pattern, `http://{your-appName}.{your-domain}.com`. For instance: `http://webappsaml.contoso.com`. Copy the Entity ID value to be used in later steps.
 1. Set **Reply URL** with the URL that Azure AD will reply after the authentication. In this sample we are using `https://localhost:44347/`.
 1. [Optional] Set the optional parameters if they are required in your scenario.
 
@@ -76,7 +76,7 @@ Open the project **WebApp_SAML** in your IDE (like Visual Studio) to configure t
 
 Clean and build the solution, then run the **WebApp_SAML** application and sign-in using a user migrated from AD FS or a user existing in your Azure AD tenant only.
 
-All the claims configured on the **User Attributes and Claims** steps will be listed in the page, case the signed-in user has a value set for it.
+All the claims configured on the **User Attributes and Claims** steps will be listed in the page, in case the signed-in user has a value set for it.
 
 ### Useful resources
 
