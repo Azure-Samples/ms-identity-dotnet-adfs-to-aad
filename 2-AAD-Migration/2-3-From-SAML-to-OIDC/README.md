@@ -50,7 +50,7 @@ Open the web application, and in the `web.config` file, add the following keys c
 ```
 
 1. Import the NuGet package `Microsoft.Owin.Security.OpenIdConnect`. 
-1. Open the `Startup.Auth.cs` class.
+1. Open the `Startup.Auth.cs` class under the `App_Start` folder.
 1. Add the following variables
     ```c#
         private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
