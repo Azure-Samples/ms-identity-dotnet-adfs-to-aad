@@ -16,7 +16,9 @@ urlFragment: "ms-identity-dotnet-adfs-to-aad"
 
 This sample will guide you through steps to migrate a web application from AD FS to Azure AD. It provides you a web application playground to test the migration, using both [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) protocols.
 
-It also includes a guidance to migrate Directory Extensions, Security Groups and change an application from SAML to OpenId Connect
+It also includes a guidance to migrate Directory Extensions, Security Groups and change an application from SAML to OpenId Connect.
+
+>NOTE: For Integrated Windows Authentication (IWA) guide, please check [this sample](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
 
 ### Scenario
 
