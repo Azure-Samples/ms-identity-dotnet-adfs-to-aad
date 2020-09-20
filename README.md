@@ -18,8 +18,21 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-Give a short description for your sample here. What does it do and why is it important?
+Title: ADFS to Azure AD application migration playbook
 
+This set of tutorials and guides will help you learn how to safely and securely migrate your applications integrated with 
+Active Directory Federation Services (ADFS) to Azure Active Directory.
+
+These code samples are an extension to the official Microsoft guide,[Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure).
+
+In the following chapters, we cover the most common types of authentication used by application in ADFS today. We hope that you can use these examples to learn and get experienced before undertaking the same steps with your in-production applications.
+
+The following chapters are available for you to go through:
+
+<---- Table with chapters, images and and links.--->
+
+
+<---- standard stuff here --->
 ## Contents
 
 Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
