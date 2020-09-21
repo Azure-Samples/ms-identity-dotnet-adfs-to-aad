@@ -1,14 +1,12 @@
 # Migrating AD FS Security Group to Azure Active Directory
 
-> This sample assumes that you already have an AD FS environment.
-
 ## Scenario
 
 You have an AD FS application that uses security groups, and you want that applications on Azure AD can work with the same groups.
 
-## About the sample
+### About the sample
 
-This documentation guides you how to configure an Azure AD application to include the security groups used on an AD FS application.
+This documentation guides you how to configure an Azure AD application to include the security groups used on an ADFS application.
 
 ### Pre-requisites
 
@@ -48,9 +46,9 @@ Once you have configured the group claims, follow the steps below to include gro
 8. For **Source attribute**, select the same option that you have chosen in the **Token configuration** blade.
 9. Select **Save**.
 
-### Testing the group claims
+### Test group claims in the application
 
-Clean and build the solution, then run the playground project and sign-in using a user migrated from AD FS who is member of a security group.
+Clean and build the solution. Run the Azure AD integrated `WebApp_SAML` project, sign-in a user, and should be able see that the user's groups listed in the claims:
 
 For each group that the user belongs to, a claim for will be displayed with the chosen **Source attribute** as its value.
 

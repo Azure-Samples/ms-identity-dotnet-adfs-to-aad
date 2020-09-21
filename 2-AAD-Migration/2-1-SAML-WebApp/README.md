@@ -19,7 +19,7 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 
 ## Migrate the AD FS SAML application to Azure AD
 
-### Register the SAML application
+### Register the SAML application in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a tenant admin account.
 1. Navigate to the Microsoft identity platform for developers [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/EnterpriseApps) page.
@@ -29,14 +29,14 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 1. Under the Manage section, select **Single sign-on**.
 1. Select **SAML** and the **Set up Single Sign-On with SAML** page will appear.
 
-#### Basic SAML configuration
+#### Basic SAML configuration for your app
 
 Learn more about [configuring SAML-based single sign-on on Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 1. To edit the basic SAML configuration options, select the **Edit** icon (a pencil) in the upper-right corner of the Basic SAML Configuration section.
 1. Set **Identifier (Entity ID)** with an unique URL that follows the pattern, `http://{your-appName}.{your-domain}.com`. For instance: `http://webappsaml.contoso.com`. Copy the Entity ID value to be used in later steps.
 1. Set **Reply URL** with the URL that Azure AD will reply after the authentication. In this sample we are using `https://localhost:44347/`.
-1. [Optional] Set the optional parameters if they are required in your scenario.
+1. [Optional] Set the optional parameters if they are required in your scenario. The guide [Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) is an excellent resource to learn about the various available options.
 
 #### User Attributes and Claims
 
