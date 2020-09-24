@@ -4,7 +4,7 @@ languages:
 - csharp
 products:
 - dotnet
-description: "Guidance to help migrate web applications from AD FS to Azure AD"
+description: "Guidance to help migrate web applications from ADFS to Azure AD"
 urlFragment: "ms-identity-dotnet-adfs-to-aad"
 ---
 
@@ -12,15 +12,13 @@ urlFragment: "ms-identity-dotnet-adfs-to-aad"
 
 ## About this sample
 
-### Overview
-
 This set of tutorials and guides will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (ADFS) to Azure Active Directory.
 
 These code samples are an extension to the official Microsoft guide,[Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure).
 
 In the following chapters, we cover the most common types of authentication used by application integrated with ADFS today. We hope that you can use these examples to learn and get experienced before undertaking the same steps with your in-production applications.
 
-### Chapters
+### Overview
 
 - We'd start with integrating a sample web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to an ADFS instance.
 - We'd then migrate this application to an Azure AD tenant.
@@ -31,6 +29,8 @@ Additionally, we'd also cover the following topics in some detail as they might 
 - Configuring [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
 - Migrating [Directory Extensions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) to Azure AD.
 - Sync and use Security Groups on the migrated application
+
+### Chapters
 
 The following chapters are available:
 | Chapter                   | Description                                |
