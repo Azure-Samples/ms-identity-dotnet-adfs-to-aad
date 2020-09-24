@@ -6,9 +6,9 @@ This page lists the steps to ensure that relevant bits of information are being 
 
 ## About the page
 
-In most organizations, the AD Connect sync tool should already installed and configured. So we advise you follow the installation steps here only on a test instance of an Active Directory domain environment.
+In most organizations, the AD Connect sync tool should be already installed and configured. So we advise you follow the installation steps here only on a test instance of an Active Directory domain environment.
 
-If its already installed, skip to [Post-Installation steps](#post-installation-steps).
+If it is already installed, skip to [Post-Installation steps](#post-installation-steps).
 
 ### Pre-requisites
 
@@ -16,7 +16,7 @@ If its already installed, skip to [Post-Installation steps](#post-installation-s
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - A tenant admin account on Azure Active Directory
 
-This document], [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an ADFS environment with an Azure Active Directory tenant.
+This document, [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an ADFS environment with an Azure Active Directory tenant.
 
 ## Before you install Azure AD Connect
 
@@ -40,7 +40,7 @@ Use [Graph Explorer](https://aka.ms/ge) to carefully examine the attributes of *
 
 ## Additional sync tasks
 
-If you run Azure AD Connect installation wizard again, it offers options for maintenance and set additional tasks.
+If you run Azure AD Connect installation wizard again, it offers options for maintenance and to set additional tasks.
 
 See [additional tasks available](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-installation-wizard) for details about extra configuration steps.
 

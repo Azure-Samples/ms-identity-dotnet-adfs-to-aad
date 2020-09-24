@@ -6,7 +6,7 @@ In this chapter, we'd integrate the provided .NET MVC web application to an ADFS
 
 ### About the sample
 
-Here we use the provided ASP.NET web application that uses the  [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol)  protocol to authenticate users.
+Here we use the provided ASP.NET web application that uses the  [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users.
 We'd first register this web app with an ADFS instance and then later move on to register (migrate) this application to the Azure AD tenant that's connected (synced) to the on-prem Active Directory domain of this ADFS instance.
 
 ### Pre-requisites
@@ -59,7 +59,7 @@ We'd first register this web app with an ADFS instance and then later move on to
 
 ### Step 3: Configure the .NET MVC application
 
-This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with AD FS.
+This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with ADFS.
 
 1. Open the **WebApp_SAML** application
 1. Open the `Web.config` file and replace the key `ida:ADFSMetadata` value with your ADFS FederationMetadata.xml URI. For instance:
@@ -72,7 +72,7 @@ This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** 
 
 ## Run the sample
 
-Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an ADFS user. The homepage will print the claims in the user's token.
+Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an on-prem Active Directory user. The homepage will print the claims in the user's token.
 
 ## Next chapter
 

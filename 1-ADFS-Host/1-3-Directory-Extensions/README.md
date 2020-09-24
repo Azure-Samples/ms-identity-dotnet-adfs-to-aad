@@ -26,7 +26,7 @@ While **users** and **groups**  will get synced to Azure AD using the Azure AD C
 4. Select **Next** on the *Connect your directories* tab
 5. Select **Next** on the *Domain and OU filtering* tab
 6. Check the box **Directory extension sync** and click **Next**
-7. The following screen will show all the available attributes in your Active Directory. Move to the right box all the attributes that you would like to send to AAD
+7. The following screen will show all the available attributes in your Active Directory. Move to the right box all the attributes that you would like to send to Azure AD
 8. Click **Next** and the synchronization will be executed.
 
 Learn more details about [synchronizing Directory Extensions to Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
@@ -45,9 +45,13 @@ One of the most useful scenario in dynamic groups is the usage of Directory Exte
 
 If you would like to configure dynamic groups, [please follow this tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups).
 
+## Next Step
+
+- [Migrate this .NET MVC application to an Azure Active Directory tenant](./../2-AAD-Migration/2-1-SAML-WebApp/README.md)
+
 ### Useful resources
 
-- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
 - [Synchronizing Directory Extensions to Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions)
 - [Using Directory Extensions in Dynamic groups](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups)

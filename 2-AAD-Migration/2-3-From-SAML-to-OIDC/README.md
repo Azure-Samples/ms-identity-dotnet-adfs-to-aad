@@ -19,11 +19,11 @@ This sample assumes that the SAML application uses `Microsoft.Owin.Security.WsFe
 
 ## Migrate from SAML to OpenId Connect
 
-Microsoft Azure Active Directory supports [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) for single sign-on authentication. While SAML is still used by the industry, developers are changing their applications to use OpenId Connect instead, due to its ability to connect to multiple Identity Providers (IdP), it is a newer protocol and when used with [OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), the application can have a distinction between authentication and authorization.   
+Microsoft Azure Active Directory supports [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) for single sign-on authentication. While SAML is still used by the industry, companies are changing their applications to use OpenId Connect instead, due to its ability to connect to multiple Identity Providers (IdP), it is a newer protocol and when used with [OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), the application can have a distinction between authentication and authorization.   
 
 If you have a SAML application registered on Azure AD, you can use the same application registration for the OpenId Connect configuration, requiring minimal code changes.
 
-### Preparation
+### Application changes in Azure Active Directory
 
 First, sign in to the [Azure portal](https://portal.azure.com) and:
 
@@ -38,7 +38,7 @@ First, sign in to the [Azure portal](https://portal.azure.com) and:
     - Search for `User.Read` and select it
     - Select `Add permissions` button
 
-### Code Change
+### Code Changes
 
 Open the web application, and in the `web.config` file, add the following keys changing the values with the ones obtained previously:
 
