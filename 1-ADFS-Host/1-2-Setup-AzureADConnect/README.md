@@ -1,25 +1,22 @@
-# Setup Azure AD Connect on AD FS to migrate data to Azure Active Directory
-
-> This sample assumes that you have a working AD FS environment.
+# Configure Azure AD Connect to synchronize with an Azure Active Directory tenant
 
 ## Scenario
 
-You have an AD FS environment and would like to migrate it to Azure Active Directory.
+This page lists the steps to ensure that relevant bits of information are being synchronized from the on-premise Active directory to its connected Azure Active Directory tenant.
 
-## About the sample
+## About the page
 
-This documentation will guide you through the initial steps on how to migrate an AD FS environment to Azure Active Directory, using [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594))
+In most organizations, the AD Connect sync tool should already installed and configured. So we advise you follow the installation steps here only on a test instance of an Active Directory domain environment.
+
+If its already installed, skip to [Post-Installation steps](#post-installation-steps).
 
 ### Pre-requisites
 
-- An AD FS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- An on-premise Active Directory environment
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - A tenant admin account on Azure Active Directory
 
-### Useful resources
-
-- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
-- [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
+This document], [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an ADFS environment with an Azure Active Directory tenant.
 
 ## Before you install Azure AD Connect
 
@@ -33,15 +30,25 @@ The installation wizard will walk you through the tool configuration.
 
 You will be asked to provide details about the Azure Active Directory tenant where you would like to migrate. A tenant admin account is required for this step.
 
-**After the installation is complete, Azure AD Connect will automatically run and data like users and groups from the AD FS environment will be copied to your Azure Active Directory. Please, gently wait this operation to finish before executing extra steps.**
+## Post-Installation steps
+
+After installation and configuration is complete, Azure AD Connect will automatically run and synchronize **users** and **groups** from the on-premise Active Directory environment to your Azure Active Directory tenant.
+
+> Please wait this operation to finish before executing extra steps. You should be able to confirm that synchronization succeeded by signing-into the Azure portal and check if all users and groups are available in the Azure AD tenant.
+
+Use [Graph Explorer](https://aka.ms/ge) to carefully examine the attributes of **users** and **groups** to ensure that all required attributes were synced.
 
 ## Additional sync tasks
 
 If you run Azure AD Connect installation wizard again, it offers options for maintenance and set additional tasks.
 
-See [additional tasks available](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-installation-wizard) for details about extra configuration steps.
+See [additional tasks available](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-installation-wizard) for details about extra configuration steps.
 
 ## Next Step
 
-- [Optional] If your AD FS has **Directory Extensions**, please [move to the next chapter to learn how to migrate them](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-3-Directory-Extensions).
-- Learn how to [migrate the web app SAML application to Azure Active Directory]().
+- [Optional] If your on premise Active Directory have **Directory Extensions** that you'd like to synchronize to the Azure AD tenant, please [move to the next chapter to learn how to migrate them](../1-3-Directory-Extensions/README.md).
+- [Migrate this .NET MVC application to an Azure Active Directory tenant](./../2-AAD-Migration/2-1-SAML-WebApp/README.md)
+
+## Useful resources
+
+- Learn how to [migrate the web app SAML application to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure).

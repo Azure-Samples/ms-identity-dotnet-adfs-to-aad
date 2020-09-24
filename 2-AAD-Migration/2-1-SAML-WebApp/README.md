@@ -15,7 +15,7 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 - [Visual Studio](https://aka.ms/vsdownload)
 - .NET Framework 4.7.2
 - An AD FS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 
 ## Migrate the AD FS SAML application to Azure AD
 

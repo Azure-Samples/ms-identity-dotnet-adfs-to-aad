@@ -4,51 +4,46 @@ languages:
 - csharp
 products:
 - dotnet
-description: "Guidance to Migrate Web Applications from AD FS to Azure AD"
+description: "Guidance to help migrate web applications from AD FS to Azure AD"
 urlFragment: "ms-identity-dotnet-adfs-to-aad"
 ---
 
-# Guidance to Migrate Web Applications from AD FS to Azure AD
+# ADFS to Azure AD application migration playbook
 
 ## About this sample
 
 ### Overview
 
-This sample will guide you through steps to migrate a web application from AD FS to Azure AD. It provides you a web application playground to test the migration, using both [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) protocols.
-
-Title: ADFS to Azure AD application migration playbook
-
-This set of tutorials and guides will help you learn how to safely and securely migrate your applications integrated with 
-Active Directory Federation Services (ADFS) to Azure Active Directory.
+This set of tutorials and guides will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (ADFS) to Azure Active Directory.
 
 These code samples are an extension to the official Microsoft guide,[Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure).
 
+In the following chapters, we cover the most common types of authentication used by application integrated with ADFS today. We hope that you can use these examples to learn and get experienced before undertaking the same steps with your in-production applications.
+
+### Chapters
+
+- We'd start with integrating a sample web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to an ADFS instance.
+- We'd then migrate this application to an Azure AD tenant.
+- We'd additionally also guide you on how to change the authentication protocol from SAML to [OAuth 2\.0 and OpenID Connect protocols](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) in case you wish to reap the benefits of being able to access rich API like [Microsoft Graph](https://docs.microsoft.com/graph/overview) and the [Azure REST API](https://docs.microsoft.com/rest/api/azure/).
+
+Additionally, we'd also cover the following topics in some detail as they might play a part in your plans:
+
+- Configuring [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
+- Migrating [Directory Extensions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) to Azure AD.
+- Sync and use Security Groups on the migrated application
+
+The following chapters are available:
+| Chapter                   | Description                                |
+|---------------------------|--------------------------------------------|
+| [1-Integrate app on ADFS](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Covers configuration of the web application on ADFS.
+| [2-Migrate to Azure AD](2-AAD-Migration\2-1-SAML-WebApp\README.md) | Migrate the working web app from ADFS to Azure AD.
+
 >NOTE: For Integrated Windows Authentication (IWA) guide, please check [this sample](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
-
-In the following chapters, we cover the most common types of authentication used by application in ADFS today. We hope that you can use these examples to learn and get experienced before undertaking the same steps with your in-production applications.
-
-The following chapters are available for you to go through:
-
-<---- Table with chapters, images and and links.--->
-
-
-<---- standard stuff here --->
-
-### Scenario
-
-- A playground web application on AD FS using [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) protocol, to be used as a migration test
-- Guidance on how to configure Azure AD Connect tool
-- Guidance on how to migrate [Directory Extensions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) to Azure AD
-- Steps on migrating the playground web application to Azure AD and a code sample
-- Guidance to enable Security Groups on the migrated playground application
-- Steps on changing an application from SAML to OpenId Connect protocol and a code sample
 
 ## Contents
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| `1-ADFS-Host`     | Chapter about configuration on the AD FS side.                                                            |
-| `2-AAD-Migration` | Chapter about configuration on the Azure AD side and the migration steps.                                             |
 | `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
 | `README.md`       | This README file.                          |
 | `LICENSE`         | The license for the sample.                |
@@ -58,8 +53,8 @@ The following chapters are available for you to go through:
 ### Prerequisites
 
 - .NET Framework 4.7.2
-- An AD FS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- An ADFS environment
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - An Azure AD tenant admin account
 
 ## Community Help and Support
