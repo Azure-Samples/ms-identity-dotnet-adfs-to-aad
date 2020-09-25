@@ -1,4 +1,4 @@
-# Migrating Directory Extensions from Active Directory to Azure Active Directory
+# Migrating Directory Extensions from on-prem Active Directory to your Azure Active Directory tenant
 
 ## About this page
 
@@ -14,7 +14,7 @@ This document, [Azure AD Connect](https://docs.microsoft.com/azure/active-direct
 
 ## Migrate Directory Extensions
 
-While **users** and **groups**  will get synced to Azure AD using the Azure AD Connect tool out of the box, **Directory Extensions** require a few extra steps to get it synced.
+While **users** and **groups**  will get synced to Azure AD tenant using the Azure AD Connect tool out of the box, **Directory Extensions** require a few extra steps to get it synced.
 
 >If your on-premise Active Directory doesn't have Directory Extensions but you would like to add one to try this sample, please follow [this tutorial to create an extension](https://social.technet.microsoft.com/wiki/contents/articles/51121.active-directory-how-to-add-custom-attribute-to-schema.aspx).
 
@@ -26,10 +26,10 @@ While **users** and **groups**  will get synced to Azure AD using the Azure AD C
 4. Select **Next** on the *Connect your directories* tab
 5. Select **Next** on the *Domain and OU filtering* tab
 6. Check the box **Directory extension sync** and click **Next**
-7. The following screen will show all the available attributes in your Active Directory. Move to the right box all the attributes that you would like to send to Azure AD
+7. The following screen will show all the available attributes in your on-prem Active Directory. Move to the right box all the attributes that you would like to send to the Azure AD tenant
 8. Click **Next** and the synchronization will be executed.
 
-Learn more details about [synchronizing Directory Extensions to Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+Learn more details about [synchronizing Directory Extensions to Azure AD tenant](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
 
 ### Testing the Directory Extensions migration
 

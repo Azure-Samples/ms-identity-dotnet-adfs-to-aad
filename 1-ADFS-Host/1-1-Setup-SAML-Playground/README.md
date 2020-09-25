@@ -1,4 +1,4 @@
-# Registering a .NET MVC Web application with ADFS
+# Registering a .NET MVC Web application on on-prem AD with an ADFS instance 
 
 ## Scenario
 
@@ -23,7 +23,7 @@ We'd first register this web app with an ADFS instance and then later move on to
 
 ### Step 1: Add a Relying Party Trust
 
-1. Log into the server in the Active Directory domain where ADFS is also installed.
+1. Log into the server in the on-prem Active Directory domain where ADFS is also installed.
 1. Open the **Server Manager** Dashboard. Under Tools choose **ADFS Management**
 1. Select **Add Relying Party Trust**
 1. Click **Start**

@@ -1,12 +1,12 @@
-# Migrating ADFS Security Group to Azure Active Directory
+# Migrating on-prem AD Security Group to your Azure Active Directory tenant
 
 ## Scenario
 
-You have an ADFS application that uses Active Directory security groups, and you want that applications on Azure AD can also work with the same groups.
+You have an ADFS application that uses on-prem Active Directory security groups, and you want that applications on your Azure AD tenant can also work with the same groups.
 
 ### About the sample
 
-This documentation guides you how to configure an Azure AD application to include the security groups from Active Directory, used on an ADFS application.
+This documentation guides you how to configure an Azure AD application to include the security groups from an on-prem Active Directory.
 
 ### Pre-requisites
 
@@ -16,7 +16,7 @@ This documentation guides you how to configure an Azure AD application to includ
 
 ## Migrate Security Groups
 
-Users and groups will get synced to Azure AD using the Azure AD Connect tool out of the box, as long as they are presented in the **Synced OU** folder on Active Directory.
+Users and groups will get synced to your Azure AD tenant using the Azure AD Connect tool out of the box, as long as they are presented in the **Synced OU** folder on the on-prem Active Directory.
 
 If you haven't set Azure AD Connect tool yet, please refer to [chapter 1-2-Setup-AzureADConnect](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) first.
 

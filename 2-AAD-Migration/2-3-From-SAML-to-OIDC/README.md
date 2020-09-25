@@ -1,5 +1,5 @@
 
-# Migrate a SAML web application to use OpenIdConnect
+# Migrate a SAML web application to use OpenId Connect
 
 ## Scenario
 
@@ -7,7 +7,7 @@ You have a web application using SAML protocol on Azure AD and you would like to
 
 ## About the sample
 
-This sample uses a .NET MVC application registered on Microsoft Active Directory, to migrate the authentication protocol from SAML to OpenId Connect. The SAML web application project can be found in [chapter 1-1-Setup-SAML-Playground](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground).
+This sample uses a .NET MVC application registered on Azure Active Directory, to migrate the authentication protocol from SAML to OpenId Connect. The SAML web application project can be found in [chapter 1-1-Setup-SAML-Playground](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground).
 
 This sample assumes that the SAML application uses `Microsoft.Owin.Security.WsFederation`, which will be changed to use `Microsoft.Owin.Security.OpenIdConnect` instead.
 
@@ -19,11 +19,11 @@ This sample assumes that the SAML application uses `Microsoft.Owin.Security.WsFe
 
 ## Migrate from SAML to OpenId Connect
 
-Microsoft Azure Active Directory supports [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) for single sign-on authentication. While SAML is still used by the industry, companies are changing their applications to use OpenId Connect instead, due to its ability to connect to multiple Identity Providers (IdP), it is a newer protocol and when used with [OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), the application can have a distinction between authentication and authorization.   
+Azure Azure Active Directory supports [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OpenId Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) for single sign-on authentication. While SAML is still used by the industry, companies are changing their applications to use OpenId Connect instead, due to its ability to connect to multiple Identity Providers (IdP), it is a newer protocol and when used with [OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), the application can have a distinction between authentication and authorization.   
 
 If you have a SAML application registered on Azure AD, you can use the same application registration for the OpenId Connect configuration, requiring minimal code changes.
 
-### Application changes in Azure Active Directory
+### Application changes on Azure Active Directory
 
 First, sign in to the [Azure portal](https://portal.azure.com) and:
 
