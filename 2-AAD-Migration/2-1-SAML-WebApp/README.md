@@ -2,13 +2,13 @@
 
 ## Scenario
 
-You have a web application using SAML protocol on an ADFS instance, and you would like to migrate it to your Azure Active Directory tenant.
+Here we migrate the provided ASP.NET web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users and integrated with ADFS, to your Azure Active Directory tenant.
 
 ## About the sample
 
-This sample uses a .NET MVC application configured to use SAML single-sign-on on ADFS, to migrate it to Azure Active Directory. The web application used in this sample is the playground project from [chapter 1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground). Ideally, you would like to follow the chapter 1 first to have a testing application for this migration.
+In the previous [chapter 1-1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) we integrated an ASP.NET web application with an ADFS instance.
 
-After the migration, this sample will use the `App Federation Metadata Url` from the Azure Active Directory application, for the SAML authentication.
+After the migration, this sample will use the `App Federation Metadata Url` from the Azure Active Directory tenant, for authentication.
 
 ### Pre-requisites
 
@@ -17,7 +17,7 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 - An ADFS environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure Active Directory tenant, see [How to get an Azure Active Directory tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 
-## Migrate the ADFS SAML application to Azure Active Directory
+## Migrate the SAML application from ADFSto Azure Active Directory
 
 ### Register the SAML application in Azure Active Directory
 
@@ -31,32 +31,32 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 
 #### Basic SAML configuration for your app
 
-Learn more about [configuring SAML-based single sign-on on Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
-
 1. To edit the basic SAML configuration options, select the **Edit** icon (a pencil) in the upper-right corner of the Basic SAML Configuration section.
 1. Set **Identifier (Entity ID)** with an unique URL that follows the pattern, `http://{your-appName}.{your-domain}.com`. For instance: `http://webappsaml.contoso.com`. Copy the Entity ID value to be used in later steps.
 1. Set **Reply URL** with the URL that Azure AD will reply after the authentication. In this sample we are using `https://localhost:44347/`.
 1. [Optional] Set the optional parameters if they are required in your scenario. The guide [Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) is an excellent resource to learn about the various available options.
 
-#### User Attributes and Claims
+Learn more about [configuring SAML-based single sign-on on Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
-By default, the claims *givenname*, *surname*, *emailaddress* and *name* will be already configured. 
+#### Configure user attributes and claims
 
-The playground web application registered on chapter 1 also uses **Employee-ID**, so we need to configure that. If you added extra claims on the ADFS SAML playground web application, follow the steps below to register all the additional claims that should be returned by the Azure AD SAML application:
+By default, the claims *givenname*, *surname*, *emailaddress* and *name* will be already configured for the application.
+
+The web application registered on [chapter 1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) also uses **Employee-ID** claim, so we need to configure that as well. If you added extra claims on the ADFS registration of the web application, follow the steps below to register all the additional claims that should be returned by the Azure AD SAML application:
 
 1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
-1. Add additional claims that you would like to use in the Web App project.
-1. To add a claim, select **Add new claim** at the top of the page. 
-2. Enter the **Name**, for instance `employeeID`.
-3. Enter the **Namespace** if desired, for instance `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`.
-4. Select the appropriate **Source** that contains the claim value. For **Employee-ID**, the source is **Attribute**.
-5. Select the appropriate **Source Attribute** or **Transformation**, depending on what you selected on the previous step. For **Employee-ID**, please select `user.employeeid`.
-6. Select **Save**. The new claim appears in the table.
+1. Add additional claims that you would like to use in the web app project.
+1. To add a claim, select **Add new claim** at the top of the page.
+1. Enter the **Name**, for instance `employeeID`.
+1. Enter the **Namespace** if desired, for instance `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`.
+1. Select the appropriate **Source** that contains the claim value. For **Employee-ID**, the source is **Attribute**.
+1. Select the appropriate **Source Attribute** or **Transformation**, depending on what you selected on the previous step. For **Employee-ID**, please select `user.employeeid`.
+1. Select **Save**. The new claim appears in the table.
 
 #### SAML Signing Certificate
 
-1. In the **SAML Signing Certificate** section, if you don't have a certification yet, select the **Edit** icon (a pencil) in the upper-right corner.
-2. Select **New Certificate** and then **Save**. 
+1. In the **SAML Signing Certificate** section, if you don't have a certificate yet, select the **Edit** icon (a pencil) in the upper-right corner.
+2. Select **New Certificate** and then **Save**.
 3. Close the blade, refresh the page and copy the value for `App Federation Metadata Url` field. We will use it on the .NET MVC project.
 
 ### Customize Claims Emitted in Tokens
@@ -74,15 +74,17 @@ Open the project **WebApp_SAML** in your IDE (like Visual Studio) to configure t
 1. Replace the value for `ida:Wtrealm` with the value that you set for **Identifier (Entity ID)**. For instance, `http://webappsaml.contoso.com`.
 1. Save, clean and build the solution.
 
-### Testing the application
+### Test the application
 
 Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an on-premise user (who already got synced) or a user from your Azure AD tenant only.
 
 All the claims configured on the **User Attributes and Claims** steps will be listed in the page, in case the signed-in user has a value set for it.
 
+> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+
 ## Next Step
 
-- [Using on-prem Active Directory security groups on Azure AD applications](../2-2-Security-Groups/README.md)
+- [Using on-prem Active Directory security groups in an Azure AD application](../2-2-Security-Groups/README.md)
 
 ### Useful resources
 

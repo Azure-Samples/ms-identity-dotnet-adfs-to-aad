@@ -36,7 +36,7 @@ The following chapters are available:
 | Chapter                   | Description                                |
 |---------------------------|--------------------------------------------|
 | [1-Integrate app on ADFS](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Covers configuration of the web application on ADFS.
-| [2-Migrate to Azure AD](2-AAD-Migration\2-1-SAML-WebApp\README.md) | Migrate the working web app from ADFS to Azure AD.
+| [2-Migrate app to Azure AD](2-AAD-Migration\2-1-SAML-WebApp\README.md) | Migrate the working web app from ADFS to Azure AD.
 
 >NOTE: For Integrated Windows Authentication (IWA) guide, please check [this sample](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
 

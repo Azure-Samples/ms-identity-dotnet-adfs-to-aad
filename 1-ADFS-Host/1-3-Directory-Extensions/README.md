@@ -31,13 +31,15 @@ While **users** and **groups**  will get synced to Azure AD tenant using the Azu
 
 Learn more details about [synchronizing Directory Extensions to Azure AD tenant](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
 
-### Testing the Directory Extensions migration
+### Test the Directory Extensions migration
 
 To test the migration, use the [Graph Explorer](https://aka.ms/ge) and sign-in using a user account that has some of the extra attributes set.
 
 Once signed-in and after consenting, copy and paste the URL, `https://graph.microsoft.com/beta/me`, and the extra attributes will be presented in the result.
 
 >Note: When you sync Directory Extensions via Azure AD Connect tool, their name on Microsoft Graph will have an auto-generated prefix that **cannot be edited**. For instance, if you have an extension called `regionDivision` and use the tool so sync it with Azure AD, its name will be transformed to something like: `extension_90f5761cbd854b259d47fde20b522087_regionDivision`. [Learn more about it here](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#configuration-changes-in-azure-ad-made-by-the-wizard).
+
+> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
 ## Use Directory Extensions in Dynamic Groups
 

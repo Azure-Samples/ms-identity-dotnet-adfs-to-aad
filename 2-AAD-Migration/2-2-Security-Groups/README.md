@@ -1,4 +1,4 @@
-# Migrating on-prem AD Security Group to your Azure Active Directory tenant
+# Using on-prem AD Security Groups in Applications registered in an Azure Active Directory tenant
 
 ## Scenario
 
@@ -10,31 +10,16 @@ This documentation guides you how to configure an Azure AD application to includ
 
 ### Pre-requisites
 
-- An ADFS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain joined machine
 
 ## Migrate Security Groups
 
 Users and groups will get synced to your Azure AD tenant using the Azure AD Connect tool out of the box, as long as they are presented in the **Synced OU** folder on the on-prem Active Directory.
 
-If you haven't set Azure AD Connect tool yet, please refer to [chapter 1-2-Setup-AzureADConnect](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) first.
+If you haven't configured the Azure AD Connect tool to sync security groups yet, please refer to the [chapter 1-2](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) once.
 
-## Configure Security Group Claims
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the Microsoft identity platform for developers [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page.
-3. Search and select the application where you want to include Security Groups. For instance, `WebApp_SAML`.
-4. Navigate to **Token configuration** on the left blade.
-5. If there isn't a configuration for groups yet, select **Add groups claim**, otherwise edit the existing configuration.
-6. The following blade is divided by the sections **ID**, **Access** and **SAML**. Each section correspond to the groups claim configuration for the **Id Token**, **Access Token** and **SAML** claims issued by the application respectively. For each section that you would like to include group claims, select the group property that the claim should return. [Learn more details about group claim](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims#configuring-groups-optional-claims).
-7. Select **Save**.
-
-### SAML applications only - Include Group Claims
-
->NOTE: This step is required only for applications that use SAML authentication protocol.
-
-Once you have configured the group claims, follow the steps below to include group claims to your SAML application:
+### Include Security Group as Claims in your application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the Microsoft identity platform for developers [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/EnterpriseApps) page.
@@ -54,6 +39,8 @@ For each group that the user belongs to, a claim for it  will be displayed with 
 
 ![GroupClaims](./ReadmeFiles/groupClaim.png)
 
+> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+
 ## Use Directory Extensions in Dynamic Groups
 
 One of the most useful scenario in dynamic groups is the usage of Directory Extensions to dynamically associate users to it.
@@ -62,7 +49,7 @@ If you would like to configure dynamic groups, [please follow this tutorial](htt
 
 ## Next Step
 
-- [Moving an application from SAML protocol to OpenId Connect protocol](../2-3-From-SAML-to-OIDC/README.md)
+- [Migrate an application using SAML protocol to OpenId Connect](../2-3-From-SAML-to-OIDC/README.md)
 
 ### Useful resources
 
