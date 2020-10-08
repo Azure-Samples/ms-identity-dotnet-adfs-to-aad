@@ -76,6 +76,8 @@ Clean and build the solution, then run the **WebApp_SAML** application and sign-
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
+> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
 ## Next chapter
 
 In the next chapter, we'd cover [Azure AD Connect sync configuration for migration scenarios](../1-2-Setup-AzureADConnect/README.md)

@@ -95,6 +95,8 @@ Clean and build the solution, then run the web application and sign-in with a us
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
+> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
 ### Useful resources
 
 - [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
