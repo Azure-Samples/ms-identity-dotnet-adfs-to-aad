@@ -41,6 +41,8 @@ Once signed-in and after consenting, copy and paste the URL, `https://graph.micr
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
+> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
 ## Use Directory Extensions in Dynamic Groups
 
 One of the most useful scenario in dynamic groups is the usage of Directory Extensions to dynamically associate users to it.

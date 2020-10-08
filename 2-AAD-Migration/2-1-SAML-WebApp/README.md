@@ -82,6 +82,8 @@ All the claims configured on the **User Attributes and Claims** steps will be li
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
+> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
 ## Next Step
 
 - [Using on-prem Active Directory security groups in an Azure AD application](../2-2-Security-Groups/README.md)
