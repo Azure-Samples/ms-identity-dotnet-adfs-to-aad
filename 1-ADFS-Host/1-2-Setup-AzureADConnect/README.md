@@ -10,13 +10,13 @@ In most organizations, the AD Connect sync tool should be already installed and 
 
 If it is already installed, skip to [Post-Installation steps](#post-installation-steps).
 
-### Pre-requisites
+### Prerequisites
 
 - An on-premise Active Directory environment
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - A tenant admin account on Azure Active Directory
 
-This document, [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an ADFS environment with an Azure Active Directory tenant.
+This document, [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an AD FS environment with an Azure Active Directory tenant.
 
 ## Before you install Azure AD Connect
 

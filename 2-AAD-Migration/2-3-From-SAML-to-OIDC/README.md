@@ -15,7 +15,7 @@ Here we migrate the provided ASP.NET web application that uses the [SAML](https:
 
 This sample uses the `Microsoft.Owin.Security.WsFederation` library for authenticating users using SAML, which we will change to use the `Microsoft.Owin.Security.OpenIdConnect` library instead.
 
-### Pre-requisites
+### Prerequisites
 
 - [Visual Studio](https://aka.ms/vsdownload)
 - .NET Framework 4.7.2
@@ -61,7 +61,7 @@ Open the web application, and in the `web.config` file, add the following keys c
     <add key="ida:RedirectUri" value="https://localhost:44347/" />
 ```
 
-1. Import the NuGet package `Microsoft.Owin.Security.OpenIdConnect`. 
+1. Import the NuGet package `Microsoft.Owin.Security.OpenIdConnect`.
 1. Open the `Startup.Auth.cs` class under the `App_Start` folder.
 1. Add the following variables
 
@@ -99,5 +99,5 @@ Clean and build the solution, then run the web application and sign-in with a us
 
 ### Useful resources
 
-- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
