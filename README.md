@@ -39,24 +39,24 @@ Also covered are the following topics as they might play a part in your migratio
 
 ## Contents
 
-| Chapter                                                                                 | Description                                                                                    |
-|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| [1. Integrate app on AD FS](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md)            | Configure the web application on AD FS.                                                        |
-| . . . [1.1 Set up the SAML playground](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Integrate the provided ASP.NET MVC web application to an AD FS instance.                       |
-| . . . [1.2 Set up Azure AD Connect](1-ADFS-Host/1-2-Setup-AzureADConnect/README.md)     | Configure Azure AD Connect to synchronize with an Azure AD tenant.                             |
-| . . . [1.3 Directory Extensions](1-ADFS-Host/1-3-Directory-Extensions/README.md)        | Migrate Directory Extensions from on-prem Active Directory to your Azure AD tenant.            |
-| [2. Migrate app to Azure AD](2-AAD-Migration/2-1-SAML-WebApp/README.md)                 | Migrate the working web app from AD FS to Azure AD.                                            |
-| . . . [2.1 SAML web application](2-AAD-Migration/2-1-SAML-WebApp/README.md)             | Migrating an ASP.NET MVC app that uses SAML protocol from AD FS to Azure AD.                   |
-| . . . [2.2 Security groups](2-AAD-Migration/2-2-Security-Groups/README.md)              | Use on-prem Active Directory security groups in applications registered in an Azure AD tenant. |
-| . . . [2.3 From SAML to OIDC](2-AAD-Migration/2-3-From-SAML-to-OIDC/README.md)          | Migrate an ASP.NET application that uses the SAML protocol to OpenID Connect (OIDC).           |
+| Chapter                                                                           | Description                                                                                    |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [**1. Integrate app on AD FS**](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md)  | Configure the web application on AD FS.                                                        |
+| [1.1 Set up the SAML playground](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Integrate the provided ASP.NET MVC web application to an AD FS instance.                       |
+| [1.2 Set up Azure AD Connect](1-ADFS-Host/1-2-Setup-AzureADConnect/README.md)     | Configure Azure AD Connect to synchronize with an Azure AD tenant.                             |
+| [1.3 Directory Extensions](1-ADFS-Host/1-3-Directory-Extensions/README.md)        | Migrate Directory Extensions from on-prem Active Directory to your Azure AD tenant.            |
+| [**2. Migrate app to Azure AD**](2-AAD-Migration/2-1-SAML-WebApp/README.md)       | Migrate the working web app from AD FS to Azure AD.                                            |
+| [2.1 SAML web application](2-AAD-Migration/2-1-SAML-WebApp/README.md)             | Migrating an ASP.NET MVC app that uses SAML protocol from AD FS to Azure AD.                   |
+| [2.2 Security groups](2-AAD-Migration/2-2-Security-Groups/README.md)              | Use on-prem Active Directory security groups in applications registered in an Azure AD tenant. |
+| [2.3 From SAML to OIDC](2-AAD-Migration/2-3-From-SAML-to-OIDC/README.md)          | Migrate an ASP.NET application that uses the SAML protocol to OpenID Connect (OIDC).           |
 
-For information about Integrated Windows Authentication (IWA), please see [Azure-Samples/active-directory-dotnet-iwa-v2](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
+For information about Integrated Windows Authentication (IWA), see [Azure-Samples/active-directory-dotnet-iwa-v2](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
 
 ## Community Help and Support
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
 
-If you find a bug in the sample, please raise the issue on [GitHub Issues](../issues).
+If you find a bug in the sample, raise the issue on [GitHub Issues](../issues).
 
 To provide feedback on or suggest features for Azure Active Directory, visit [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory).
 

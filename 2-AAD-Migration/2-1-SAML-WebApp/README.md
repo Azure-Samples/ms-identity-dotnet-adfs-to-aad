@@ -13,9 +13,9 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 ### Prerequisites
 
 - [Visual Studio](https://aka.ms/vsdownload)
-- .NET Framework 4.7.2
-- An ADFS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure Active Directory tenant, see [How to get an Azure Active Directory tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework)
+- An AD FS environment
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure Active Directory tenant, see [How to get an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
 ## Migrate the SAML application from ADFSto Azure Active Directory
 
@@ -36,7 +36,7 @@ After the migration, this sample will use the `App Federation Metadata Url` from
 1. Set **Reply URL** with the URL that Azure AD will reply after the authentication. In this sample we are using `https://localhost:44347/`.
 1. [Optional] Set the optional parameters if they are required in your scenario. The guide [Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) is an excellent resource to learn about the various available options.
 
-Learn more about [configuring SAML-based single sign-on on Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
+Learn more about [configuring SAML-based single sign-on in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 #### Configure user attributes and claims
 
@@ -50,7 +50,7 @@ The web application registered on [chapter 1](https://github.com/Azure-Samples/m
 1. Enter the **Name**, for instance `employeeID`.
 1. Enter the **Namespace** if desired, for instance `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`.
 1. Select the appropriate **Source** that contains the claim value. For **Employee-ID**, the source is **Attribute**.
-1. Select the appropriate **Source Attribute** or **Transformation**, depending on what you selected on the previous step. For **Employee-ID**, please select `user.employeeid`.
+1. Select the appropriate **Source Attribute** or **Transformation**, depending on what you selected on the previous step. For **Employee-ID**, select `user.employeeid`.
 1. Select **Save**. The new claim appears in the table.
 
 #### SAML Signing Certificate
@@ -69,7 +69,7 @@ In order to customize the claims emitted in tokens, you have to create a **claim
 
 Open the project **WebApp_SAML** in your IDE (like Visual Studio) to configure the code.
 
-1. Open the `Web.config` file.
+1. Open the *Web.config* file.
 1. Replace the value for `ida:ADFSMetadata` with the link that you copied from **App Federation Metadata Url** field.
 1. Replace the value for `ida:Wtrealm` with the value that you set for **Identifier (Entity ID)**. For instance, `http://webappsaml.contoso.com`.
 1. Save, clean and build the solution.
@@ -80,7 +80,7 @@ Clean and build the solution, then run the **WebApp_SAML** application and sign-
 
 All the claims configured on the **User Attributes and Claims** steps will be listed in the page, in case the signed-in user has a value set for it.
 
-> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+> If you find a bug in the sample, raise the issue on [GitHub Issues](../../issues).
 
 > [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
 

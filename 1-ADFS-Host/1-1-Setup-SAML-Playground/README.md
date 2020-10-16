@@ -14,10 +14,9 @@ We'd first register this web app with an AD FS instance and then later move on t
 > This sample assumes that you already have an on-prem Active Directory and an AD FS environment.
 
 - [Visual Studio](https://aka.ms/vsdownload)
-- .NET Framework 4.7.2
-- An Internet connection
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework)
 - A SSL certificate to use during registering the app (Relying Party) on AD FS.
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
 ## Configuring the sample on an AD FS server
 
@@ -62,7 +61,7 @@ We'd first register this web app with an AD FS instance and then later move on t
 This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with AD FS.
 
 1. Open the **WebApp_SAML** application
-1. Open the `Web.config` file and replace the key `ida:ADFSMetadata` value with your AD FS FederationMetadata.xml URI. For instance:
+1. Open the *Web.config* file and replace the key `ida:ADFSMetadata` value with your AD FS FederationMetadata.xml URI. For instance:
 
     ```xml
     <add key="ida:ADFSMetadata" value="https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml" />
@@ -74,7 +73,7 @@ This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** 
 
 Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an on-prem Active Directory user. The homepage will print the claims in the user's token.
 
-> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+> If you find a bug in the sample, raise the issue on [GitHub Issues](../../issues).
 
 > [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
 

@@ -13,18 +13,18 @@ If it is already installed, skip to [Post-Installation steps](#post-installation
 ### Prerequisites
 
 - An on-premise Active Directory environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- A tenant admin account on Azure Active Directory
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- A tenant admin account in Azure Active Directory
 
-This document, [Azure AD Connect tool]((https://www.microsoft.com/download/details.aspx?id=47594)) will guide you through the initial steps on how to synchronize an AD FS environment with an Azure Active Directory tenant.
+The [Azure AD Connect tool](https://www.microsoft.com/download/details.aspx?id=47594) will guide you through the initial steps on how to synchronize an AD FS environment with an Azure Active Directory tenant.
 
 ## Before you install Azure AD Connect
 
-Please, [kindly read the Azure AD Connect prerequisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installing it. This documentation contains information about hardware and software requirements, security guidelines, installation best practices, and operations not supported by the tool.
+Read the [Azure AD Connect prerequisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installing it. This documentation contains information about hardware and software requirements, security guidelines, installation best practices, and operations not supported by the tool.
 
 ## Installing Azure AD Connect
 
-On a domain joined Windows Server 2012 or later, [download and install Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). It is highly recommended that this server is a domain controller.
+On a domain-joined Windows Server 2012 or later, [download and install Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). It is highly recommended that this server is a domain controller.
 
 The installation wizard will walk you through the tool configuration.
 
@@ -46,7 +46,7 @@ See [additional tasks available](https://docs.microsoft.com/azure/active-directo
 
 ## Next Step
 
-- [Optional] If your on premise Active Directory have **Directory Extensions** that you'd like to synchronize to the Azure AD tenant, please [move to the next chapter to learn how to migrate them](../1-3-Directory-Extensions/README.md).
+- [Optional] If your on premise Active Directory have **Directory Extensions** that you'd like to synchronize to the Azure AD tenant, [move to the next chapter to learn how to migrate them](../1-3-Directory-Extensions/README.md).
 - [Migrate this .NET MVC application to an Azure Active Directory tenant](./../2-AAD-Migration/2-1-SAML-WebApp/README.md)
 
 ## Useful resources
