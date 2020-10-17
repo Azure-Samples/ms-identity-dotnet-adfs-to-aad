@@ -41,7 +41,11 @@ For each group that the user belongs to, a claim for it  will be displayed with 
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
-> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+## We'd love your feedback!
+
+Were we successful in addressing your learning objective? [Do consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
+We're always listening, and if you want to get in touch with you directly, send an email to <aadappfeedback@microsoft.com>.
 
 ## Use Directory Extensions in Dynamic Groups
 

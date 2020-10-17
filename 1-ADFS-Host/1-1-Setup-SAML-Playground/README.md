@@ -76,7 +76,11 @@ Clean and build the solution, then run the **WebApp_SAML** application and sign-
 
 > If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
-> [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+## We'd love your feedback!
+
+Were we successful in addressing your learning objective? [Do consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
+
+We're always listening, and if you want to get in touch with you directly, send an email to <aadappfeedback@microsoft.com>.
 
 ## Next chapter
 
@@ -85,4 +89,5 @@ In the next chapter, we'd cover [Azure AD Connect sync configuration for migrati
 ### Useful resources
 
 - [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [AD FS to Azure AD App Migration Tool](https://github.com/AzureAD/Deployment-Plans/blob/master/ADFS%20to%20AzureAD%20App%20Migration/Readme.md)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
