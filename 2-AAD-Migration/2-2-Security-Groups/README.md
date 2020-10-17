@@ -2,22 +2,22 @@
 
 ## Scenario
 
-You have an ADFS application that uses on-prem Active Directory security groups, and you want that applications on your Azure AD tenant can also work with the same groups.
+You have an AD FS application that uses on-prem Active Directory security groups, and you want that applications on your Azure AD tenant can also work with the same groups.
 
 ### About the sample
 
 This documentation guides you how to configure an Azure AD application to include the security groups from an on-prem Active Directory.
 
-### Pre-requisites
+### Prerequisites
 
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain joined machine
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain-joined machine
 
 ## Migrate Security Groups
 
 Users and groups will get synced to your Azure AD tenant using the Azure AD Connect tool out of the box, as long as they are presented in the **Synced OU** folder on the on-prem Active Directory.
 
-If you haven't configured the Azure AD Connect tool to sync security groups yet, please refer to the [chapter 1-2](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) once.
+If you haven't configured the Azure AD Connect tool to sync security groups yet, refer to the [chapter 1-2](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-2-Setup-AzureADConnect) once.
 
 ### Include Security Group as Claims in your application
 
@@ -39,7 +39,7 @@ For each group that the user belongs to, a claim for it  will be displayed with 
 
 ![GroupClaims](./ReadmeFiles/groupClaim.png)
 
-> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+> If you find a bug in the sample, raise the issue on [GitHub Issues](../../issues).
 
 > [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
 
@@ -47,15 +47,15 @@ For each group that the user belongs to, a claim for it  will be displayed with 
 
 One of the most useful scenario in dynamic groups is the usage of Directory Extensions to dynamically associate users to it.
 
-If you would like to configure dynamic groups, [please follow this tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups).
+If you would like to configure dynamic groups, [follow this tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups).
 
 ## Next Step
 
-- [Migrate an application using SAML protocol to OpenId Connect](../2-3-From-SAML-to-OIDC/README.md)
+- [Migrate an application using SAML protocol to OpenID Connect](../2-3-From-SAML-to-OIDC/README.md)
 
 ### Useful resources
 
-- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
 - [Synchronizing Directory Extensions to Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions)
 - [Using Directory Extensions in Dynamic groups](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups)

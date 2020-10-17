@@ -1,16 +1,14 @@
 # Migrating Directory Extensions from on-prem Active Directory to your Azure Active Directory tenant
 
-## About this page
-
-If you have created **Directory Extensions** in your on-premise Active Directory entities, and you wish to synchronize them to your Azure Active Directory tenant, this document provides the necessary guidance to help you do so.
+If you've created **Directory Extensions** in your on-premise Active Directory entities and you wish to synchronize them to your Azure Active Directory tenant, this document provides the necessary guidance to help you do so.
 
 This document, [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) also guides you how to configure Azure AD Connect to synchronize Directory Extensions.
 
-### Pre-requisites
+### Prerequisites
 
 - An on-premise Active Directory environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain joined machine
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) configured on a domain-joined machine
 
 ## Migrate Directory Extensions
 
@@ -39,7 +37,7 @@ Once signed-in and after consenting, copy and paste the URL, `https://graph.micr
 
 >Note: When you sync Directory Extensions via Azure AD Connect tool, their name on Microsoft Graph will have an auto-generated prefix that **cannot be edited**. For instance, if you have an extension called `regionDivision` and use the tool so sync it with Azure AD, its name will be transformed to something like: `extension_90f5761cbd854b259d47fde20b522087_regionDivision`. [Learn more about it here](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#configuration-changes-in-azure-ad-made-by-the-wizard).
 
-> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+> If you find a bug in the sample, raise the issue on [GitHub Issues](../../issues).
 
 > [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
 
@@ -47,7 +45,7 @@ Once signed-in and after consenting, copy and paste the URL, `https://graph.micr
 
 One of the most useful scenario in dynamic groups is the usage of Directory Extensions to dynamically associate users to it.
 
-If you would like to configure dynamic groups, [please follow this tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups).
+If you would like to configure dynamic groups, [follow this tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups).
 
 ## Next Step
 
@@ -55,7 +53,7 @@ If you would like to configure dynamic groups, [please follow this tutorial](htt
 
 ### Useful resources
 
-- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
 - [Synchronizing Directory Extensions to Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions)
 - [Using Directory Extensions in Dynamic groups](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#use-the-attributes-in-dynamic-groups)

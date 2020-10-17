@@ -3,67 +3,62 @@ page_type: sample
 languages:
 - csharp
 products:
+- azure-active-directory
 - dotnet
-description: "Guidance to help migrate web applications from ADFS to Azure AD"
+description: "Guidance to help migrate web applications from AD FS to Azure AD"
 urlFragment: "ms-identity-dotnet-adfs-to-aad"
 ---
 
-# ADFS to Azure AD application migration playbook
+# AD FS to Azure AD application migration playbook
 
-## About this sample
+This set of ASP.NET code samples and accompanying tutorials can help you learn how to safely and securely migrate your applications that are integrated with Active Directory Federation Services (AD FS) to Azure Active Directory (Azure AD).
 
-This set of tutorials and guides will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (ADFS) to Azure Active Directory.
+These code samples are a companion to [Moving application authentication from AD FS to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) on docs<span>.microsoft<span>.com.
 
-These code samples are an extension to the official Microsoft guide,[Moving application authentication from Active Directory Federation Services to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure).
+The directories in this repo contain tutorial *chapters*, each with a README and sample code covering a scenario. The chapters cover the most common types of authentication used by applications that are integrated with AD FS today, and with them you can learn and gain experience before undertaking similar steps for your applications currently running in production.
 
-In the following chapters, we cover the most common types of authentication used by application integrated with ADFS today. We hope that you can use these examples to learn and get experienced before undertaking the same steps with your in-production applications.
+## Prerequisites
 
-### Overview
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework)
+- [AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview) environment
+- [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
-- We'd start with integrating a sample web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to an ADFS instance.
-- We'd then migrate this application to an Azure AD tenant.
-- We'd additionally also guide you on how to change the authentication protocol from SAML to [OAuth 2\.0 and OpenID Connect protocols](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) in case you wish to reap the benefits of being able to access rich API like [Microsoft Graph](https://docs.microsoft.com/graph/overview) and the [Azure REST API](https://docs.microsoft.com/rest/api/azure/).
+## Migration steps
 
-Additionally, we'd also cover the following topics in some detail as they might play a part in your plans:
+By following the tutorial chapters in this code sample, you progress through the following scenarios:
 
-- Configuring [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
+- Start by integrating a sample web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol with an AD FS instance.
+- Next, migrate the application to an Azure AD tenant.
+- Finally, we guide you through changing the authentication protocol from SAML to [OAuth 2.0 and OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) so you can to reap the benefits of accessing rich APIs like [Microsoft Graph](https://docs.microsoft.com/graph/overview) and the [Azure REST API](https://docs.microsoft.com/rest/api/azure/).
+
+Also covered are the following topics as they might play a part in your migration:
+
+- Configuring [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis).
 - Migrating [Directory Extensions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) to Azure AD.
-- Sync and use Security Groups on the migrated application
-
-### Chapters
-
-The following chapters are available:
-| Chapter                   | Description                                |
-|---------------------------|--------------------------------------------|
-| [1-Integrate app on ADFS](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Covers configuration of the web application on ADFS.
-| [2-Migrate app to Azure AD](2-AAD-Migration\2-1-SAML-WebApp\README.md) | Migrate the working web app from ADFS to Azure AD.
-
->NOTE: For Integrated Windows Authentication (IWA) guide, please check [this sample](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
+- Sync and use Security Groups on the migrated application.
 
 ## Contents
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+| Chapter                                                                           | Description                                                                                    |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [**1. Integrate app on AD FS**](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md)  | Configure the web application on AD FS.                                                        |
+| [1.1 Set up the SAML playground](1-ADFS-Host/1-1-Setup-SAML-Playground/README.md) | Integrate the provided ASP.NET MVC web application to an AD FS instance.                       |
+| [1.2 Set up Azure AD Connect](1-ADFS-Host/1-2-Setup-AzureADConnect/README.md)     | Configure Azure AD Connect to synchronize with an Azure AD tenant.                             |
+| [1.3 Directory Extensions](1-ADFS-Host/1-3-Directory-Extensions/README.md)        | Migrate Directory Extensions from on-prem Active Directory to your Azure AD tenant.            |
+| [**2. Migrate app to Azure AD**](2-AAD-Migration/2-1-SAML-WebApp/README.md)       | Migrate the working web app from AD FS to Azure AD.                                            |
+| [2.1 SAML web application](2-AAD-Migration/2-1-SAML-WebApp/README.md)             | Migrating an ASP.NET MVC app that uses SAML protocol from AD FS to Azure AD.                   |
+| [2.2 Security groups](2-AAD-Migration/2-2-Security-Groups/README.md)              | Use on-prem Active Directory security groups in applications registered in an Azure AD tenant. |
+| [2.3 From SAML to OIDC](2-AAD-Migration/2-3-From-SAML-to-OIDC/README.md)          | Migrate an ASP.NET application that uses the SAML protocol to OpenID Connect (OIDC).           |
 
-## Setup
-
-### Prerequisites
-
-- .NET Framework 4.7.2
-- An ADFS environment
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
-- An Azure AD tenant admin account
+For information about Integrated Windows Authentication (IWA), see [Azure-Samples/active-directory-dotnet-iwa-v2](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
 
 ## Community Help and Support
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
 
-If you find a bug in the sample, please raise the issue on [GitHub Issues](../issues).
+If you find a bug in the sample, raise the issue on [GitHub Issues](../issues).
 
-To provide a recommendation, visit the following [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+To provide feedback on or suggest features for Azure Active Directory, visit [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Contributing
 

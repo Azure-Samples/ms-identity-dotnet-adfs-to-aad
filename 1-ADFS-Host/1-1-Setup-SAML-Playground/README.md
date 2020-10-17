@@ -1,35 +1,34 @@
-# Registering a .NET MVC Web application on on-prem AD with an ADFS instance 
+# Registering a .NET MVC Web application on on-prem AD with an AD FS instance
 
 ## Scenario
 
-In this chapter, we'd integrate the provided .NET MVC web application to an ADFS instance first.
+In this chapter, we'd integrate the provided .NET MVC web application to an AD FS instance first.
 
 ### About the sample
 
 Here we use the provided ASP.NET web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users.
-We'd first register this web app with an ADFS instance and then later move on to register (migrate) this application to the Azure AD tenant that's connected (synced) to the on-prem Active Directory domain of this ADFS instance.
+We'd first register this web app with an AD FS instance and then later move on to register (migrate) this application to the Azure AD tenant that's connected (synced) to the on-prem Active Directory domain of this AD FS instance.
 
-### Pre-requisites
+### Prerequisites
 
-> This sample assumes that you already have an on-prem Active Directory and an ADFS environment.
+> This sample assumes that you already have an on-prem Active Directory and an AD FS environment.
 
 - [Visual Studio](https://aka.ms/vsdownload)
-- .NET Framework 4.7.2
-- An Internet connection
-- A SSL certificate to use during registering the app (Relying Party) on ADFS.
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework)
+- A SSL certificate to use during registering the app (Relying Party) on AD FS.
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
-## Configuring the sample on an ADFS server
+## Configuring the sample on an AD FS server
 
 ### Step 1: Add a Relying Party Trust
 
-1. Log into the server in the on-prem Active Directory domain where ADFS is also installed.
-1. Open the **Server Manager** Dashboard. Under Tools choose **ADFS Management**
+1. Log into the server in the on-prem Active Directory domain where AD FS is also installed.
+1. Open the **Server Manager** Dashboard. Under Tools choose **AD FS Management**
 1. Select **Add Relying Party Trust**
 1. Click **Start**
 1. Choose the option **Enter data about relying party manually** and click **Next**
 1. Add a display name, for instance `WebApp_SAML`, and click **Next**
-1. Choose the **ADFS profile** option and click **Next**
+1. Choose the **AD FS profile** option and click **Next**
 1. Click **Next** on the Configure Certificate step.
 1. Click **Next** on the Configure URL step
 1. Under Relying party trust identifier add your application’s web URL (this sample uses `https://localhost:44347`)
@@ -42,7 +41,7 @@ We'd first register this web app with an ADFS instance and then later move on to
 
 ### Step 2: Adding a Claim Policy
 
-1. On the ADFS Management window, select **Relying Party Trust**
+1. On the AD FS Management window, select **Relying Party Trust**
 1. Select the application name that you have chosen on the previous step and click **Edit Claim Issuance Policy** on the right menu
 1. In the new popup window, click **Add Rule**
 1. Choose the Claim rule template as **Send LDAP Attributes as Claims** and click **Next**
@@ -59,10 +58,10 @@ We'd first register this web app with an ADFS instance and then later move on to
 
 ### Step 3: Configure the .NET MVC application
 
-This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with ADFS.
+This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with AD FS.
 
 1. Open the **WebApp_SAML** application
-1. Open the `Web.config` file and replace the key `ida:ADFSMetadata` value with your ADFS FederationMetadata.xml URI. For instance:
+1. Open the *Web.config* file and replace the key `ida:ADFSMetadata` value with your AD FS FederationMetadata.xml URI. For instance:
 
     ```xml
     <add key="ida:ADFSMetadata" value="https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml" />
@@ -74,7 +73,7 @@ This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** 
 
 Clean and build the solution, then run the **WebApp_SAML** application and sign-in using an on-prem Active Directory user. The homepage will print the claims in the user's token.
 
-> If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+> If you find a bug in the sample, raise the issue on [GitHub Issues](../../issues).
 
 > [Consider taking a moment to share your experience with us.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUODFCRVg4VTk2QUE2VEFPMUZKSEJNUFhWUyQlQCN0PWcu)
 
@@ -84,5 +83,5 @@ In the next chapter, we'd cover [Azure AD Connect sync configuration for migrati
 
 ### Useful resources
 
-- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
