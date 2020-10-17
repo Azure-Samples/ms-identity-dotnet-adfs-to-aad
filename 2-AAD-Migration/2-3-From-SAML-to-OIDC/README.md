@@ -1,38 +1,34 @@
 
-# Migrate a .NET application using SAML protocol to OpenId Connect
+# Migrate a .NET application using SAML protocol to OpenID Connect
 
 ## Scenario
 
-You have a web application using SAML protocol on Azure AD and you would like to migrate it to use OpenId Connect protocol.
+You have a web application using SAML protocol on Azure AD and you would like to migrate it to use OpenID Connect protocol.
 
-Here we migrate the provided ASP.NET web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users and registered in your Azure Active Directory tenant to the [OAuth 2\.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols).
-
-Application developers might consider this to enable their applications to be able to work with [OAuth 2\.0](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) based Web APIs like [Microsoft Graph](https://docs.microsoft.com/graph/overview) and [Azure REST API](https://docs.microsoft.com/rest/api/azure/).
-
-## About the sample
-
-Here we migrate the provided ASP.NET web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users and registered on Azure Active Directory, the [OAuth 2\.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols). The web application project can be found in [chapter 1-1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground/README.md).
+Here we migrate the provided ASP.NET web application that uses the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol to authenticate users and registered in your Azure Active Directory tenant to the [OAuth 2.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols). The web application project can be found in [chapter 1-1](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad/tree/master/1-ADFS-Host/1-1-Setup-SAML-Playground/README.md).
 
 This sample uses the `Microsoft.Owin.Security.WsFederation` library for authenticating users using SAML, which we will change to use the `Microsoft.Owin.Security.OpenIdConnect` library instead.
 
-### Pre-requisites
+Application developers might consider this to enable their applications to be able to work with [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) based Web APIs like [Microsoft Graph](https://docs.microsoft.com/graph/overview) and [Azure REST API](https://docs.microsoft.com/rest/api/azure/).
+
+### Prerequisites
 
 - [Visual Studio](https://aka.ms/vsdownload)
-- .NET Framework 4.7.2
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework)
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
-## Migrate from SAML to OpenId Connect
+## Migrate from SAML to OpenID Connect
 
-Azure Azure Active Directory supports application using both [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OAuth 2\.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) for authentication.
+Azure Azure Active Directory supports application using both [SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) and [OAuth 2.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) for authentication.
 
-If you have a application using SAML registered on Azure AD today, you can use the same application registration to enable authentication using [OAuth 2\.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), thus requiring minimal code changes.
+If you have a application using SAML registered on Azure AD today, you can use the same application registration to enable authentication using [OAuth 2.0 and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols), thus requiring minimal code changes.
 
-### Application changes on Azure Active Directory
+### Application changes in Azure Active Directory
 
 First, sign in to the [Azure portal](https://portal.azure.com) and:
 
-1. Note down the `TenantId`, which can be found in the [Azure Active Directory menu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)
-2. Note down the `ClientId` of the SAML application that is already registered on Azure AD. To find it, navigate to **App Registrations**, search for the application name and copy the value for the **Application (client) ID** column.
+1. Record the `TenantId`, which can be found in the [Azure Active Directory menu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)
+2. Record the `ClientId` of the SAML application that is already registered on Azure AD. To find it, navigate to **App Registrations**, search for the application name and copy the value for the **Application (client) ID** column.
 3. Add Microsoft Graph delegated permission `User.Read` to the application:
     - Open the application registration
     - Navigate to **API Permissions** on the left blade
@@ -40,7 +36,7 @@ First, sign in to the [Azure portal](https://portal.azure.com) and:
     - Click on **Microsoft Graph** option
     - Select **Delegated permissions**
     - Search for `User.Read` and select it
-    - Select `Add permissions` button
+    - Select **Add permissions** button
 
 ### (Optional) Configure security groups as claims
 
@@ -52,7 +48,7 @@ First, sign in to the [Azure portal](https://portal.azure.com) and:
 
 ### Code Changes
 
-Open the web application, and in the `web.config` file, add the following keys changing the values with the ones obtained previously:
+Open the web application, and in the *web.config* file, add the following keys changing the values with the ones obtained previously:
 
 ```xml
     <add key="ida:ClientId" value="{Client_Id}" />
@@ -61,8 +57,8 @@ Open the web application, and in the `web.config` file, add the following keys c
     <add key="ida:RedirectUri" value="https://localhost:44347/" />
 ```
 
-1. Import the NuGet package `Microsoft.Owin.Security.OpenIdConnect`. 
-1. Open the `Startup.Auth.cs` class under the `App_Start` folder.
+1. Import the NuGet package `Microsoft.Owin.Security.OpenIdConnect`.
+1. Open the *Startup.Auth.cs* file under the *App_Start* folder.
 1. Add the following variables
 
     ```c#
@@ -87,7 +83,7 @@ Open the web application, and in the `web.config` file, add the following keys c
         });
     ```
 
-1. Open the `AccountController.cs` class and change `WsFederationAuthenticationDefaults.AuthenticationType` to `OpenIdConnectAuthenticationDefaults.AuthenticationType`.
+1. Open the *AccountController.cs* file and change `WsFederationAuthenticationDefaults.AuthenticationType` to `OpenIdConnectAuthenticationDefaults.AuthenticationType`.
 
 ### Test the application
 
@@ -103,5 +99,5 @@ We're always listening, and if you want to get in touch with you directly, send 
 
 ### Useful resources
 
-- [Moving application authentication from ADFS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
+- [Moving application authentication from AD FS to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure)
 - [Configure SAML-based single sign-on to non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)
