@@ -9,11 +9,11 @@ description: "Guidance to help migrate web applications from AD FS to Azure AD"
 urlFragment: "ms-identity-dotnet-adfs-to-aad"
 ---
 
-# AD FS to Azure AD application migration playbook
+# AD FS to Azure AD application migration playbook for developers
 
-This set of ASP.NET code samples and accompanying tutorials will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (AD FS) to Azure Active Directory (Azure AD).
+This set of ASP.NET code samples and accompanying tutorials will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (AD FS) to Azure Active Directory (Azure AD). This tutorial is focused towards developers who not only need to learn configuring apps on both AD FS and Azure AD, but also become aware and confident of changes their code base will require in this process.
 
-These code samples are a companion to [Moving application authentication from AD FS to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) available on the Microsoft Docs site.
+These code samples are a companion to [Moving application authentication from AD FS to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) available on the Microsoft Docs site.   
 
 The folders in this repo are arranged as *chapters*, each with a README and sample code for a scenario. The chapters cover the most common types of authentication utilized by applications integrated with AD FS today, and we hope they let you learn and gain valuable experience before undertaking an app migration initiative for your applications currently running in production.
 
