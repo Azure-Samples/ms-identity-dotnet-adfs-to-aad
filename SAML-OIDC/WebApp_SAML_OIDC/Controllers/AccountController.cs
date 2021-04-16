@@ -22,7 +22,7 @@ namespace WebApp_SAML_OIDC.Controllers
         /// <param name="isOIDC"></param>
         public void SignIn(bool isOIDC)
         {
-            
+            // Checks if the request is not authenticated, then redirect to required sign-in page.
             if (!Request.IsAuthenticated)
             {
                 if (isOIDC)
