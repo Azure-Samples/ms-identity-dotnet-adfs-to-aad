@@ -1,0 +1,13 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item nav-link">
+                Hello, @User.Identity.Name!
+            </li>
+            <li class="nav-item nav-link">
+                @Html.ActionLink("Sign out", "SignOut", "Account")
+            </li>
+        </ul>
+    </text>
+}

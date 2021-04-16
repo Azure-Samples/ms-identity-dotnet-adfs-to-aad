@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+    if (claimsIdentity != null)
+    {
+        var authType = claimsIdentity.FindFirst(Constants.AuthenticationType);
+
+        if (authType != null && authType.Value == Microsoft.Owin.Security.OpenIdConnect.OpenIdConnectAuthenticationDefaults.AuthenticationType)
+        {
+            <p>User is Logged in using OIDC.</p>
+        }
+        else
+        {
+            <p>User is Logged in using SAML.</p>
+        }
+
+        <div>
+            <h4>User Claims</h4>
+        </div>
+        <table class="table table-striped table-condensed" style="font-family: monospace">
+            <tr>
+                <th>Claim Name</th>
+                <th>Value</th>
+            </tr>
+            @{
+                foreach (System.Security.Claims.Claim claim in claimsIdentity.Claims)
+                {
+                    <tr>
+                        <td> @claim.Type </td>
+                        <td> @claim.Value</td>
+                    </tr>
+                }
+
+            }
+        </table>
+    }
+}
+else
+{
+    <p>Sign-in to see user details.</p>
+    <p>
+        @Html.ActionLink("Sign-in using OIDC", "SignIn", "Account", routeValues: new { isOIDC = true }, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary" })
+
+    </p>
+    <p>
+        @Html.ActionLink("Sign-in using SAML (ADFS)", "SignIn", "Account", routeValues: new { isOIDC = false }, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary" })
+    </p>
+}
