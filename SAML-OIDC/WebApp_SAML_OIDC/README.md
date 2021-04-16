@@ -6,11 +6,11 @@ products:
   - dotnet
   - aspnet
   - azure-active-directory  
-name: Signing in users with SAML and OpenIDConnect in the same web application
+name: Signing in users with SAML and OpenID Connect in the same web application
 urlFragment: ms-identity-dotnet-adfs-to-aad
 ---
 
-# Signing in users with SAML and OpenIDConnect in the same web application
+# Signing in users with SAML and OpenID Connect in the same web application
 
  1. [Overview](#overview)
  1. [Scenario](#scenario)
@@ -31,10 +31,12 @@ urlFragment: ms-identity-dotnet-adfs-to-aad
 ## Overview
 
 This sample shows how in a ASP .NET web applications, we can use the libraries provided by Microsoft to sign-in users using multiple federation protocols.
-This particular samples shows using SAML and OpenIDConnect in the same web app.
+This particular samples shows using SAML and OpenID Connect in the same web app.
 This sample addresses complex scenarios where a developer might have to address multiple protocols when adjusting or incorporating multiple Identity Providers.
-  
-This sample uses the `Microsoft.Owin.Security.WsFederation` library for authenticating users using SAML, which we will change to use the `Microsoft.Owin.Security.OpenIdConnect` library instead.
+
+## Disclaimer
+
+This sample does not intend to lay down the pattern or foundations of how this complex situation should be approached or done. This is instead provided as a good starting point for developers to start with and experiment further till it meets their eventual needs.
 
 ## Scenario
 
@@ -126,6 +128,7 @@ As a first step you'll need to:
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
 1. In the app's registration screen, select **Authentication** in the menu.
    - If you don't have a platform added, select **Add a platform** and select the **Web** option.
+   - In **Implicit grant** section, select the check box for **ID tokens**.
    - In the **Front-channel logout URL** section, set it to `https://localhost:44347/signout-oidc`.
 1. Select **Save** to save your changes.
 1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs.
@@ -189,7 +192,9 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** to configure the authentication with AD FS.
 
 1. Open the **WebApp_SAML_OIDC** application
-1. Open the *Web.config* file and replace the key `ida:ADFSMetadata` value with your AD FS FederationMetadata.xml URI. For instance:
+1. Open the *Web.config* file and replace the key `ida:ADFSMetadata` value with `https://[enter_your_ADFS_hostname]/federationmetadata/2007-06/federationmetadata.xml`
+
+    For instance:
 
     ```xml
     <add key="ida:ADFSMetadata" value="https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml" />
@@ -205,16 +210,18 @@ This sample is using the NuGet package **Microsoft.Owin.Security.WsFederation** 
 
 ## Explore the sample
 
-1. HomePage displays two Sign-in options on right hand side.
+1. HomePage displays two Sign-in options.
 
     ![HomePage](./ReadmeFiles/HomePage.png)
 
-1. Select **Sign in OIDC**, after successful sign-in user claims will be displayed on HomePage.
+1. Select **Sign-in using OIDC**, after successful sign-in user claims will be displayed on HomePage.
+
     ![OIDC_SignIn](./ReadmeFiles/OIDC_SignIn.png)
 
 1. Select **Sign Out**.
 
-1. Select **Sign in ADFS**, after successful sign-in user claims will be displayed on HomePage.
+1. Select **Sign-in using SAML (ADFS)**, after successful sign-in user claims will be displayed on HomePage.
+
     ![SAML_SignIn](./ReadmeFiles/SAML_SignIn.png)
 
 > :information_source: Did the sample not work for you as expected? Then please reach out to us using the [GitHub Issues](../../../../../issues) page.
@@ -229,7 +236,7 @@ We're always listening, and if you want to get in touch with you directly, send 
 
 1. In `Startup.cs`, update ConfigureAuth method to add authentication middleware.
 
-    Below lines of code adds OpenIdConnect authentication middleware:
+    Below lines of code adds OpenID Connect authentication middleware:
 
     ```csharp
     app.UseOpenIdConnectAuthentication(

@@ -57,11 +57,11 @@ We have also covered the following topics in some detail as they might play a bi
 
 For information about Integrated Windows Authentication (IWA), see [Azure-Samples/active-directory-dotnet-iwa-v2](https://github.com/Azure-Samples/active-directory-dotnet-iwa-v2).
 
-### Chapter 3: Configure web app with SAML and OpenIDConnect
+### Chapter 3: Configure web app with SAML and OpenID Connect
 
 |                                                  |                               |
 |--------------------------------------------------|-------------------------------|
-| [WebApp_SAML_OIDC](SAML-OIDC/WebApp_SAML_OIDC/README.md) | Signing in users with SAML and OpenIDConnect in the same web application. |
+| [WebApp_SAML_OIDC](SAML-OIDC/WebApp_SAML_OIDC/README.md) | Signing in users with SAML and OpenID Connect in the same web application. |
 
 ## We'd love your feedback!
 

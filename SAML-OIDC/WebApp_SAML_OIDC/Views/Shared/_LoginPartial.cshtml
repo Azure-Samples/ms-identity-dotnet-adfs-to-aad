@@ -11,11 +11,3 @@
         </ul>
     </text>
 }
-else
-{
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item nav-link">@Html.ActionLink("Sign in ADFS", "SignIn", "Account", routeValues: new { isOIDC = false }, htmlAttributes: new { id = "loginLink" })</li>
-        <li class="nav-item nav-link">@Html.ActionLink("Sign in OIDC", "SignIn", "Account", routeValues: new { isOIDC = true }, htmlAttributes: new { id = "loginLink" })</li>
-
-    </ul>
-}
